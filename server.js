@@ -8,6 +8,7 @@ app.use(morgan('dev'));
 app.set('views', './views');
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
+var db = require('./models');
 
 
 
