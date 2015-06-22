@@ -22,7 +22,7 @@ app.get('/', function(req, res){
 
 
 
-server.listen(port, funtion() {
+server.listen(port, function() {
   console.log("listening on port");
 });
 
