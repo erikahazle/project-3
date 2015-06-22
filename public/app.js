@@ -1,9 +1,6 @@
 // console.log('I am working');
-var geocoder;
+// var geocoder;
 var infowindow = null;
-var map;
-
-var geocoder;
 var map;
 
 
