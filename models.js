@@ -2,13 +2,6 @@ var mongoose = require('mongoose');
 mongoose.connect("mongodb://localhost/babypassdb");
 
 var Schema = mongoose.Schema;
-var UserSchema = new Schema({
-  name: String,
-  email: String,
-  phone: String,
-  role: String,
-  activities: []
-});
 
 var ActivitySchema = new Schema({
   title: String,
@@ -19,7 +12,15 @@ var ActivitySchema = new Schema({
   capacity: Number,
   age_from: Number,
   age_to: Number,
-  customers: []
+  customers: Array
+});
+
+var UserSchema = new Schema({
+  name: String,
+  email: String,
+  phone: String,
+  role: String,
+  activities: [ActivitySchema]
 });
 
 var User = mongoose.model('User', UserSchema);
