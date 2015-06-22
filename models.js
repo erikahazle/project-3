@@ -11,8 +11,7 @@ var ActivitySchema = new Schema({
   date: Date,
   capacity: Number,
   age_from: Number,
-  age_to: Number,
-  customers: Array
+  age_to: Number
 });
 
 var UserSchema = new Schema({
@@ -20,7 +19,7 @@ var UserSchema = new Schema({
   email: String,
   phone: String,
   role: String,
-  activities: [ActivitySchema]
+  activities: [ ActivitySchema ]
 });
 
 var User = mongoose.model('User', UserSchema);

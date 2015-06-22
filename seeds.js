@@ -54,7 +54,7 @@ db.User.create({
   User.activities.push(activity2);
   User.save();
   console.log(User);
-  User.activities[0].customers.push(customer1._id);
+  User.activities[0].customers.push(customer1);
   User.save();
   console.log(User);
 });
