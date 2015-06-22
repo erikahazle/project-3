@@ -16,6 +16,11 @@ var activity1 = {
     age_to: 6
   };
 
+db.Activity.create(activity1, function(err, activity) {
+  console.log('activity has been created');
+  console.log(activity);
+})
+
 var activity2 = {
     title: 'Baby dancing',
     address: '43 Fake Street.',
@@ -26,23 +31,10 @@ var activity2 = {
     age_to: 4
   };
 
-// var customer1 = db.User.create({
-//   name: 'Erika',
-//   email: 'erika@mail.com',
-//   phone: '3554-234-2323',
-//   role: 'Customer'
-// }, function(err, User) {
-//   console.log(User);
-// });
-
-// var customer2 = db.User.create({
-//   name: 'Brian',
-//   email: 'brian@mail.com',
-//   phone: '3554-234-2323',
-//   role: 'Customer'
-// }, function(err, User) {
-//   console.log(User);
-// });
+db.Activity.create(activity2, function(err, activity) {
+  console.log('activity has been created');
+  console.log(activity);
+})
 
 db.User.create({
     name: 'Nick',
