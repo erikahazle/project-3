@@ -4,19 +4,22 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var server = require('http').createServer(app);
 var port = process.env.PORT || 3000;
+var db = require('./models');
+
 app.use(morgan('dev'));
 app.set('views', './views');
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
-var db = require('./models');
-
-
 
 app.get('/', function(req, res){
-  res.send('hello mum');
+  res.render('index');
 });
 
-
+app.get('/activities', function(req, res) {
+  db.Activity.find({}, function(err, activities) {
+    res.send(activities);
+  })
+})
 
 
 
