@@ -7,7 +7,7 @@ var UserSchema = new Schema({
   email: String,
   phone: String,
   role: String,
-  activities: [ActivitySchema]
+  activities: []
 });
 
 var ActivitySchema = new Schema({
@@ -19,14 +19,14 @@ var ActivitySchema = new Schema({
   capacity: Number,
   age_from: Number,
   age_to: Number,
-  customers: [UserSchema]
+  customers: []
 });
 
 var User = mongoose.model('User', UserSchema);
 var Activity = mongoose.model('Activity', ActivitySchema);
 
-model.exports.User = User;
-model.exports.Activity = Activity;
+module.exports.User = User;
+module.exports.Activity = Activity;
 
 
 
