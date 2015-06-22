@@ -26,23 +26,23 @@ var activity2 = {
     age_to: 4
   };
 
-var customer1 = db.User.create({
-  name: 'Erika',
-  email: 'erika@mail.com',
-  phone: '3554-234-2323',
-  role: 'Customer'
-}, function(err, User) {
-  console.log(User);
-});
+// var customer1 = db.User.create({
+//   name: 'Erika',
+//   email: 'erika@mail.com',
+//   phone: '3554-234-2323',
+//   role: 'Customer'
+// }, function(err, User) {
+//   console.log(User);
+// });
 
-var customer2 = db.User.create({
-  name: 'Brian',
-  email: 'brian@mail.com',
-  phone: '3554-234-2323',
-  role: 'Customer'
-}, function(err, User) {
-  console.log(User);
-});
+// var customer2 = db.User.create({
+//   name: 'Brian',
+//   email: 'brian@mail.com',
+//   phone: '3554-234-2323',
+//   role: 'Customer'
+// }, function(err, User) {
+//   console.log(User);
+// });
 
 db.User.create({
     name: 'Nick',
@@ -54,7 +54,26 @@ db.User.create({
   User.activities.push(activity2);
   User.save();
   console.log(User);
-  User.activities[0].customers.push(customer1);
+});
+
+db.User.create({
+    name: 'Erika',
+    email: 'Erika@mail.com',
+    phone: '32-234-2323',
+    role: 'Customer' 
+}, function(err, User){
+  User.activities.push(activity1);
+  User.save();
+  console.log(User);
+});
+
+db.User.create({
+    name: 'Brian',
+    email: 'brian@mail.com',
+    phone: '32-234-2323',
+    role: 'Customer' 
+}, function(err, User){
+  User.activities.push(activity1);
   User.save();
   console.log(User);
 });
