@@ -13,10 +13,12 @@ var db = require('./models');
 
 
 app.get('/', function(req, res){
-  res.send('hello mum');
+  res.render('index');
 });
 
-
+app.get('/activities', function(req, res) {
+  
+})
 
 
 
