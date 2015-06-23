@@ -47,9 +47,8 @@ $(document).ready(function() {
       // Pushes address to an array named addresses. This is used because we want to add many pins to map. 
       addresses.push(activity.address);
       // console.log(addresses);
-      $('.activity-feed-wrapper').append('<div>' + activity.title + activity.address + '</div>');
+      // $('.activity-feed-wrapper').append('<div>' + activity.title + activity.address + '</div>');
     })
     codeAddress();
-    console.log('outside the each block');
   })
 });
