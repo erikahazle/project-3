@@ -18,7 +18,7 @@ module.exports = function(app, passport) {
 
     app.get('/signup/:role', function(req, res) {
         if (req.params.role === 'customer') {
-            res.render('signup.ejs', { message: req.flash('signupMessage') });
+            res.render('customer_signup.ejs', { message: req.flash('signupMessage') });
         } else if (req.params.role === 'vendor') {
             res.render('vendor_signup.ejs', { message: req.flash('signupMessage') });
         } else {
