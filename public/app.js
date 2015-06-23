@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 // Google maps integration
 var geocoder;
 var map;
@@ -48,7 +49,11 @@ $(document).ready(function() {
       addresses.push(activity.address);
       // console.log(addresses);
       // $('.activity-feed-wrapper').append('<div>' + activity.title + activity.address + '</div>');
+      $('.activity-feed-wrapper').append('<div><a href="/' + activity._id + '">' + activity.title + '</a></div>');
     })
     codeAddress();
   })
 });
+  //   $.get('/activity/:id', function(response) {
+  //     console.log("yo" + this);
+})
