@@ -1,12 +1,12 @@
 var REPL = require('repl');
-// var db = require('./app/models/models');
+var db = require('./app/models/user');
 
 var repl = REPL.start('BabyPass >');
 repl.context.db = db;
 
 // == clear database +++++++++
-db.User.collection.remove();
-db.Activity.collection.remove();
+// db.User.collection.remove();
+// db.Activity.collection.remove();
 
 // ==== activities +++++++++
 var activity1 = {
