@@ -26,11 +26,11 @@ $(document).ready(function() {
     $.each(response, function(index, activity) {
       $('.activity-feed-wrapper').append('<div><a href="/' + activity._id + '">' + activity.title + '</a></div>');
     })
-  }),
-    $.get('/activity/:id', function(response) {
-      console.log("yo" + this);
-    $.each(response, function(index, activity) {
-      $('.activity-feed-wrapper').append('<div>' + activity.title + '</div>');
-    })
   })
+  //   $.get('/activity/:id', function(response) {
+  //     console.log("yo" + this);
+  //   $.each(response, function(index, activity) {
+  //     $('.activity-feed-wrapper').append('<div>' + activity.title + '</div>');
+  //   })
+  // })
 })

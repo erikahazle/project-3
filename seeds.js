@@ -6,7 +6,7 @@ repl.context.db = db;
 
 // == clear database +++++++++
 db.User.collection.remove();
-db.Activity.collection.remove();
+// db.Activity.collection.remove();
 
 // ==== activities +++++++++
 var activity1 = {
@@ -28,7 +28,7 @@ db.Activity.create(activity1, function(err, activity) {
 var activity2 = {
     title: 'Early Years Soft Play Sessions',
     address: "Mile End Children's Park, Locksley Street, London, E14 7EJ",
-    image: 'someurl.here.com',
+    image: 'activity2.jpg',
     description: "A soft play session with a big range of play equipment for parents / carers and children under four who live in Tower Hamlets. Come and have fun with your child, meet up with friends and meet new people.",
     capacity: 10,
     age_from: 2,
@@ -101,7 +101,7 @@ var activity6 = {
   };
 
 db.Activity.create(activity6, function(err, activity) {
-  console.log('activity has been created');
+  console.log('activity has been created for half moon');
   console.log(activity);
 })
 
@@ -362,13 +362,13 @@ db.Activity.create(activity21, function(err, activity) {
 //   console.log(activity);
 // })
 
-// ======= create Users +++++++++++++
+// ======= create Customers with Activities +++++++++++++
 
 db.User.create({
     name: 'julie morgan',
     email: 'info@toyhouse.org.uk',
     phone: '020 7987 7399',
-    role: 'Vendor' 
+    role: 'Customer'
 }, function(err, User){
   User.activities.push(activity1);
   User.activities.push(activity2);
@@ -376,27 +376,41 @@ db.User.create({
   console.log(User);
 });
 
-db.User.create({
-    name: 'Erika',
-    email: 'Erika@mail.com',
-    phone: '32-234-2323',
-    role: 'Customer' 
-}, function(err, User){
-  User.activities.push(activity1);
-  User.save();
-  console.log(User);
-});
+// db.User.create({
+//     name: 'Erika',
+//     email: 'Erika@mail.com',
+//     phone: '32-234-2323',
+//     role: 'Customer' 
+// }, function(err, User){
+//   User.activities.push(activity3);
+//   User.activities.push(activity4);
+//   User.save();
+//   console.log(User);
+// });
 
-db.User.create({
-    name: 'Brian',
-    email: 'brian@mail.com',
-    phone: '32-234-2323',
-    role: 'Customer' 
-}, function(err, User){
-  User.activities.push(activity1);
-  User.save();
-  console.log(User);
-});
+// db.User.create({
+//     name: 'Brian',
+//     email: 'brian@mail.com',
+//     phone: '32-234-2323',
+//     role: 'Customer' 
+// }, function(err, User){
+//   User.activities.push(activity5);
+//   User.activities.push(activity6);
+//   User.save();
+//   console.log(User);
+// });
+
+// db.User.create({
+//     name: 'Margaret Jones',
+//     email: 'madge@madgemail.com',
+//     phone: '32-234-2323',
+//     role: 'Customer' 
+// }, function(err, User){
+//   User.activities.push(activity7);
+//   User.activities.push(activity8);
+//   User.save();
+//   console.log(User);
+// });
 
 
 

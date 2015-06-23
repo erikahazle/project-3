@@ -20,17 +20,17 @@ app.get('/', function(req, res){
 app.get('/activities', function(req, res) {
   db.Activity.find({}, function(err, activities) {
     res.send(activities);
-  })
-})
+  });
+});
 
-app.get('/activity/:id', function(req, res) {
-  // console.log(req)
-  // console.log(res)
-  var activityId = req.params.id;
-  // db.Activity.find({activityId}, function(err, activities) {
-  //   // res.send(activities);
-  // })
-})
+// app.get('/activity/:id', function(req, res) {
+//   // console.log(req)
+//   // console.log(res)
+//   var activityId = req.params.id;
+//   // db.Activity.find({activityId}, function(err, activities) {
+//   //   // res.send(activities);
+//   // })
+// })
 
 
 server.listen(port, function() {
