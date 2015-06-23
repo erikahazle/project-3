@@ -17,6 +17,8 @@ var db = require('./app/models/models');
 
 // require('./config/passport')(passport);
 
+var path = require("path");
+
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(bodyParser());
@@ -26,10 +28,31 @@ app.set('views', './views');
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
+<<<<<<< HEAD
 app.use(session({ secret: 'ilovescotchscotchyscotchscotch' }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash()); 
+=======
+app.get('/', function(req, res){
+  res.render('index');
+});
+
+app.get('/activities', function(req, res) {
+  db.Activity.find({}, function(err, activities) {
+    res.send(activities);
+  });
+});
+
+// app.get('/activity/:id', function(req, res) {
+//   // console.log(req)
+//   // console.log(res)
+//   var activityId = req.params.id;
+//   // db.Activity.find({activityId}, function(err, activities) {
+//   //   // res.send(activities);
+//   // })
+// })
+>>>>>>> seeding
 
 require('./app/routes.js')(app, passport);
 
