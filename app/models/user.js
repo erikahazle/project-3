@@ -1,12 +1,8 @@
 var mongoose = require('mongoose');
-<<<<<<< HEAD
+
 var bcrypt   = require('bcrypt-nodejs');
 mongoose.connect("mongodb://localhost/babypassdb");
 
-=======
-mongoose.connect("mongodb://localhost/babypassdb");
-var bcrypt = require('bcrypt-nodejs');
->>>>>>> b879bf3f1b65a1dc08db91952b378ce57b342b9c
 
 var ActivitySchema = mongoose.Schema({
   title: String,
