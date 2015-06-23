@@ -1,8 +1,8 @@
 // app/routes.js
 
-// var db = require('./models/models');
 
-module.exports = function(app, passport) {
+
+module.exports = function(app, passport, db) {
 
     app.get('/', function(req, res) {
         res.render('index.ejs');
@@ -13,7 +13,7 @@ module.exports = function(app, passport) {
     // =====================================
 
     app.get("/activities", function (req, res){
-      db.Activity.find({}, function(err, activities){
+      db.User.find({}, function(err, activities){
         res.send('Hello there');
       });
     });

@@ -1,5 +1,5 @@
 var REPL = require('repl');
-var db = require('./app/models/models');
+// var db = require('./app/models/models');
 
 var repl = REPL.start('BabyPass >');
 repl.context.db = db;
