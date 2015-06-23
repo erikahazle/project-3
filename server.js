@@ -6,6 +6,8 @@ var server = require('http').createServer(app);
 var port = process.env.PORT || 3000;
 var db = require('./models');
 
+var path = require("path");
+
 app.use(morgan('dev'));
 app.set('views', './views');
 app.set('view engine', 'ejs');
@@ -21,9 +23,14 @@ app.get('/activities', function(req, res) {
   })
 })
 
-
-
-
+app.get('/activity/:id', function(req, res) {
+  // console.log(req)
+  // console.log(res)
+  var activityId = req.params.id;
+  // db.Activity.find({activityId}, function(err, activities) {
+  //   // res.send(activities);
+  // })
+})
 
 
 server.listen(port, function() {

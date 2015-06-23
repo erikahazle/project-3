@@ -24,9 +24,13 @@ $(document).ready(function() {
 
   $.get('/activities', function(response) {
     $.each(response, function(index, activity) {
+      $('.activity-feed-wrapper').append('<div><a href="/' + activity._id + '">' + activity.title + '</a></div>');
+    })
+  }),
+    $.get('/activity/:id', function(response) {
+      console.log("yo" + this);
+    $.each(response, function(index, activity) {
       $('.activity-feed-wrapper').append('<div>' + activity.title + '</div>');
     })
   })
-
-
 })
