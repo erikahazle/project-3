@@ -15,7 +15,7 @@ var session = require('express-session');
 
 var db = require('./app/models/models');
 
-// require('./config/passport')(passport);
+require('./config/passport')(passport);
 
 var path = require("path");
 
