@@ -17,7 +17,6 @@ var ActivitySchema = new Schema({
 var UserSchema = new Schema({
   name: String,
   email: String,
-  phone: String,
   role: String,
   activities: [ ActivitySchema ]
 });

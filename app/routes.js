@@ -32,8 +32,14 @@ module.exports = function(app, passport, db) {
         failureFlash : true
     }));
 
-    app.get('/signup', function(req, res) {
-        res.render('signup.ejs', { message: req.flash('signupMessage') });
+    app.get('/signup/:role', function(req, res) {
+        if (req.params.role === 'customer') {
+            res.render('customer_signup.ejs', { message: req.flash('signupMessage') });
+        } else if (req.params.role === 'vendor') {
+            res.render('vendor_signup.ejs', { message: req.flash('signupMessage') });
+        } else {
+            res.send('Page no found');
+        }
     });
 
     app.post('/signup', passport.authenticate('local-signup', {

@@ -67,7 +67,6 @@ var activity5 = {
     date: Date('2015-07-25')
   };
 
-
 var activity6 = {
     title: "Half Moon Young Peoples Theatre",
     address: "43, White Horse Rd, London, E1 0ND",

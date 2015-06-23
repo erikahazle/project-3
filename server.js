@@ -18,30 +18,26 @@ app.use(express.static(__dirname + '/public'));
 
 var configDB = require('./config/database.js');
 
-// configuration ===============================================================
-mongoose.connect('mongodb://localhost/babypassdb'); // connect to our database
+mongoose.connect('mongodb://localhost/babypassdb');
 
-require('./config/passport')(passport); // pass passport for configuration
+require('./config/passport')(passport);
 
-// set up our express application
-app.use(morgan('dev')); // log every request to the console
-app.use(cookieParser()); // read cookies (needed for auth)
-app.use(bodyParser()); // get information from html forms
 
-app.set('view engine', 'ejs'); // set up ejs for templating
+app.use(morgan('dev'));
+app.use(cookieParser());
+app.use(bodyParser());
 
-// required for passport
-app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
+app.set('view engine', 'ejs');
+
+app.use(session({ secret: 'ilovescotchscotchyscotchscotch' }));
 app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
-app.use(flash()); // use connect-flash for flash messages stored in session
+app.use(passport.session());
+app.use(flash());
 
-// routes ======================================================================
-require('./app/routes.js')(app, passport, configDB); // load our routes and pass in our app and fully configured passport
+require('./app/routes.js')(app, passport);
 
-// launch ======================================================================
-app.listen(port);
-console.log('The magic happens on port ' + port);
-
+app.listen(port, function() {
+  console.log('The magic happens on port ' + port);
+});
 
 

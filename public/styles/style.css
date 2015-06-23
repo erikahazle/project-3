@@ -2,3 +2,13 @@
   height: 500px;
   width: 100%;
 }
+
+.display-none {
+  display: none;
+}
+
+.class-booked {
+  width: 500px;
+  height: 300px;
+  background-color: pink;
+}
