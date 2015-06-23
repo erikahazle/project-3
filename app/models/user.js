@@ -19,7 +19,7 @@ var userSchema = mongoose.Schema({
         email: String,
         password: String,
         name: String,
-        post_code: String,
+        postcode: String,
         role: String,
         activities: [ ActivitySchema ]
     }
