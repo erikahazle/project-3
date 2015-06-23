@@ -1,10 +1,26 @@
 // app/routes.js
 
-module.exports = function(app, passport) {
+
+
+module.exports = function(app, passport, db) {
 
     app.get('/', function(req, res) {
         res.render('index.ejs');
     });
+
+    // =====================================
+    // CLIENT ACTIVITY ROUTES ==============
+    // =====================================
+
+    app.get("/activities", function (req, res){
+      db.User.find({}, function(err, activities){
+        res.send('Hello there');
+      });
+    });
+
+
+    // end of CLIENT ACTIVITY ROUTES =======
+
 
     app.get('/login', function(req, res) {
         res.render('login.ejs', { message: req.flash('loginMessage') }); 
