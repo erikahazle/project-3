@@ -1,61 +1,72 @@
-// var REPL = require('repl');
-// var db = require('./models');
+var REPL = require('repl');
+var db = require('./app/models/models');
 
-// var repl = REPL.start('BabyPass >');
-// repl.context.db = db;
+var repl = REPL.start('BabyPass >');
+repl.context.db = db;
 
-// // == clear database +++++++++
-// db.User.collection.remove();
-// // db.Activity.collection.remove();
+// == clear database +++++++++
+db.User.collection.remove();
+db.Activity.collection.remove();
+// db.Activity.collection.remove();
 
-// // ==== activities +++++++++
-// var activity1 = {
-//     title: 'Active Physical Play',
-//     address: "St. Hilda's Community Centre , 18 Club Row, London, E2 7PY",
-//     image: 'activity1.jpg',
-//     description: 'An active physcial play session for families and their children under 5 years. Set in a large hall, with a range of large soft play equipment, sit and ride toys and immaginative play resources.',
-//     capacity: 20,
-//     age_from: 3,
-//     age_to: 6,
-//     date: '23/06/2015'
-//   };
+// ==== activities +++++++++
+var activity1 = {
+  title: 'Active Physical Play',
+  address: "St. Hilda's Community Centre , 18 Club Row, London, E2 7PY",
+  image: 'activity1.jpg',
+  description: 'An active physcial play session for families and their children under 5 years. Set in a large hall, with a range of large soft play equipment, sit and ride toys and immaginative play resources.',
+  capacity: 20,
+  age_from: 3,
+  age_to: 6,
+  date: Date('2014-12-08')
+};
 
-// db.Activity.create(activity1, function(err, activity) {
-//   console.log('activity has been created');
-//   console.log(activity);
-// })
+var activity2 = {
+  title: 'Early Years Soft Play Sessions',
+  address: "Mile End Children's Park, Locksley Street, London, E14 7EJ",
+  image: 'activity2.jpg',
+  description: "A soft play session with a big range of play equipment for parents / carers and children under four who live in Tower Hamlets. Come and have fun with your child, meet up with friends and meet new people.",
+  capacity: 10,
+  age_from: 2,
+  age_to: 4,
+  date: Date('2015-08-07')
+};
 
-// var activity2 = {
-//     title: 'Early Years Soft Play Sessions',
-//     address: "Mile End Children's Park, Locksley Street, London, E14 7EJ",
-//     image: 'activity2.jpg',
-//     description: "A soft play session with a big range of play equipment for parents / carers and children under four who live in Tower Hamlets. Come and have fun with your child, meet up with friends and meet new people.",
-//     capacity: 10,
-//     age_from: 2,
-//     age_to: 4,
-//     date: '23/06/2015'
-//   };
+var activity3 = {
+  title: "Gymboree Docklands",
+  address: "95 Blackwall Way, New Providence Wharf, London, E14 9QT",
+  image: "activity3.jpg",
+  description: "You will have exclusive use of our gym studio filled with colourful custom made play equipment for under 5s in a safely matted area. A 2 hour party is hosted by an enthusiastic trained teacher and will include music, dance, games and our famous bubbles! We have themes such as farmyard animals, cars & trains, princesses or jungle safari to make your little ones birthday party extra special.",
+  capacity: 10,
+  age_from: 2,
+  age_to: 5,
+  date: Date('2015-08-07')
+};
 
-// db.Activity.create(activity2, function(err, activity) {
-//   console.log('activity has been created');
-//   console.log(activity);
-// })
+db.User.create({
+    name: 'julie morgan',
+    email: 'info@toyhouse.org.uk',
+    phone: '020 7987 7399',
+    role: 'Customer'
+}, function(err, user){
+  db.Activity.create(activity1, function(err, activity) {
+    console.log('activity has been created', activity);
+    user.activities.push(activity);
+    user.save()
+  })
 
-// var activity3 = {
-//     title: "Gymboree Docklands",
-//     address: "95 Blackwall Way, New Providence Wharf, London, E14 9QT",
-//     image: "activity3.jpg",
-//     description: "You will have exclusive use of our gym studio filled with colourful custom made play equipment for under 5s in a safely matted area. A 2 hour party is hosted by an enthusiastic trained teacher and will include music, dance, games and our famous bubbles! We have themes such as farmyard animals, cars & trains, princesses or jungle safari to make your little ones birthday party extra special.",
-//     capacity: 10,
-//     age_from: 2,
-//     age_to: 5,
-//     date: '23/06/2015'
-//   };
+  db.Activity.create(activity2, function(err, activity) {
+    console.log('activity has been created');
+    user.activities.push(activity);
+    user.save();
+  })
 
-// db.Activity.create(activity3, function(err, activity) {
-//   console.log('activity has been created');
-//   console.log(activity);
-// })
+  db.Activity.create(activity3, function(err, activity) {
+    console.log('activity has been created');
+    user.activities.push(activity);
+    user.save();
+  })
+});
 
 // var activity4 = {
 //     title: "Mudlarks Children's Gallery",
@@ -364,17 +375,7 @@
 
 // ======= create Customers with Activities +++++++++++++
 
-// db.User.create({
-//     name: 'julie morgan',
-//     email: 'info@toyhouse.org.uk',
-//     phone: '020 7987 7399',
-//     role: 'Customer'
-// }, function(err, User){
-//   User.activities.push(activity1);
-//   User.activities.push(activity2);
-//   User.save();
-//   console.log(User);
-// });
+
 
 // db.User.create({
 //     name: 'Erika',

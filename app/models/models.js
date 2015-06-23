@@ -25,11 +25,13 @@ var UserSchema = new Schema({
 var User = mongoose.model('User', UserSchema);
 var Activity = mongoose.model('Activity', ActivitySchema);
 
-module.exports.User = User;
-module.exports.Activity = Activity;
+// module.exports.User = User;
+// module.exports.Activity = Activity;
 
 module.exports = {
-  'url': "mongodb://localhost/babypassdb"
+  'url': "mongodb://localhost/babypassdb",
+  'User': User,
+  'Activity': Activity
 }
 
 
