@@ -1,5 +1,4 @@
 
-<<<<<<< HEAD
 // Google maps integration
 var geocoder;
 var map;
@@ -56,4 +55,4 @@ $(document).ready(function() {
 });
   //   $.get('/activity/:id', function(response) {
   //     console.log("yo" + this);
-})
+// })
