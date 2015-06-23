@@ -14,7 +14,7 @@ module.exports = function(app, passport, db) {
 
     app.get("/activities", function (req, res){
         db.Activity.find({}, function(err, activities) {
-           res.send(activities);
+           res.render('activities.ejs');
         })
     });
 
