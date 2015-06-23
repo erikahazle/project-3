@@ -21,6 +21,17 @@ app.get('/activities', function(req, res) {
   })
 })
 
+app.get('/activities/:address', function(req, res) {  
+ 
+
+  // var Address = mongoose.model('Address', ActivitySchema);
+  console.log("**************************")
+  console.log(req);
+  // db.Activity.find({}, function(err, activities) {
+  //   res.send(activities);
+  // })
+})
+
 
 
 

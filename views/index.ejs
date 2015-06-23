@@ -4,16 +4,25 @@
   <meta charset="UTF-8">
   <title>Babypass</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation.min.js"></script>
+  <!-- Foundation Scripts -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/normalize.css" rel="stylesheet">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation.min.js"></script>
+
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false"></script>
-
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.1.2/mustache.js"></script>
   <script src="./app.js"></script>
   <script scr="./maps.js"></script>
   <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
+  <nav>
+    <h3 data-magellan-destination="arrival">Arrival</h3>
+    <a name="arrival"></a>
+    <h3 data-magellan-destination="destination">Destination</h3>
+    <a name="destination"></a>
+  </nav> 
+  <a href="#" class="button">Default Button</a>
   <h1>Welcome to Babypass</h1>
   <div class="activity-feed-wrapper"></div>
   <div id="map-canvas"></div>

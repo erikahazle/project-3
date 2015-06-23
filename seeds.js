@@ -8,7 +8,7 @@ db.User.collection.remove();
 
 var activity1 = {
     title: 'Swimming',
-    address: '123 Fake Street.',
+    address: 'Second Home, Hanbury Street, London',
     image: 'url.here.com',
     description: 'learn to swim',
     capacity: 20,
@@ -23,7 +23,7 @@ db.Activity.create(activity1, function(err, activity) {
 
 var activity2 = {
     title: 'Baby dancing',
-    address: '43 Fake Street.',
+    address: 'Tate Modern, Bankside, London',
     image: 'someurl.here.com',
     description: 'learn to dance with style',
     capacity: 10,
