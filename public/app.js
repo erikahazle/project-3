@@ -1,11 +1,11 @@
 // console.log('I am working');
-// var geocoder;
+var geocoder;
 var infowindow = null;
 var map;
 
 
 function initialize() {
-  // geocoder = new google.maps.Geocoder();
+  geocoder = new google.maps.Geocoder();
   var latlng = new google.maps.LatLng(51.50722, -0.12750);
   var mapOptions = {
     zoom: 12,
@@ -19,11 +19,12 @@ function initialize() {
 $(document).ready(function() {
   google.maps.event.addDomListener(window, 'load', initialize);
 
-  $.get('/activities', function(response) {
-    $.each(response, function(index, activity) {
-      $('.activity-feed-wrapper').append('<div>' + activity.title + '</div>');
-    })
-  })
+  // $.get('/activities', function(response) {
+  //   console.log(response);
+  //   $.each(response, function(index, activity) {
+  //     $('.activity-feed-wrapper').append('<div>' + activity.title + '</div>');
+  //   })
+  // })
 
 
 })
