@@ -1,11 +1,10 @@
 var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
-
-var User = require('../app/models/user');
-
-var configAuth = require('./auth');
+// var configAuth = require('./auth');
 
 module.exports = function(passport) {
+
+    var User = require('../app/models/user.js');
 
     passport.serializeUser(function(user, done) {
         done(null, user.id);
@@ -38,7 +37,6 @@ module.exports = function(passport) {
                 var newUser            = new User();
                 newUser.local.email    = email;
                 newUser.local.name = req.body.name;
-                // newUser.local.postcode = req.body.postcode;
                 newUser.local.role = req.body.role;
                 newUser.local.password = newUser.generateHash(password);
                 newUser.save(function(err) {

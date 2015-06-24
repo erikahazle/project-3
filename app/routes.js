@@ -31,14 +31,15 @@ module.exports = function(app, passport, db) {
         failureFlash : true
     }));
 
-    app.get('/signup/:role', function(req, res) {
-        if (req.params.role === 'customer') {
-            res.render('customer_signup.ejs', { message: req.flash('signupMessage') });
-        } else if (req.params.role === 'vendor') {
-            res.render('vendor_signup.ejs', { message: req.flash('signupMessage') });
-        } else {
-            res.send('Page no found');
-        }
+    app.get('/signup', function(req, res) {
+        // if (req.params.role === 'customer') {
+        //     res.render('customer_signup.ejs', { message: req.flash('signupMessage') });
+        // } else if (req.params.role === 'vendor') {
+        //     res.render('vendor_signup.ejs', { message: req.flash('signupMessage') });
+        // } else {
+        //     res.send('Page no found');
+        // }
+        res.render('customer_signup.ejs', { message: req.flash('signupMessage') });
     });
 
     app.post('/signup', passport.authenticate('local-signup', {
