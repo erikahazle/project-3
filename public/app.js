@@ -52,6 +52,20 @@ $(document).ready(function() {
     })
     codeAddress();
   })
+  // ajax request to server
+  // response holds array of activities returned.
+  // $.get('/activitylist', function(response) {
+  //   var activities = response;
+  //   console.log(activities);
+  //   // (index, ) is the index position in the array
+  //   // $.each(activities, function(index, activity) {
+  //   //   console.log(activity);
+  //   //   // pull #activity-item-template from the DOM of the script form
+  //   //   // activity, is the data...  $('#activity-ul') is where appending to.
+  //   //   View.render($('#activity-item-template'), activity, $('#activity-ul'));
+  //   // })
+  // })
+
 });
   //   $.get('/activity/:id', function(response) {
   //     console.log("yo" + this);

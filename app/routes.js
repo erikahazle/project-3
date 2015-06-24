@@ -12,9 +12,9 @@ module.exports = function(app, passport, db) {
     // CLIENT ACTIVITY ROUTES ==============
     // =====================================
 
-    app.get("/activities", function (req, res){
+    app.get("/activitylist", function (req, res){
         db.Activity.find({}, function(err, activities) {
-           res.render('activities.ejs');
+           res.render('activitylist.ejs', { activities: activities });
         })
     });
 
