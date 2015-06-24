@@ -19,9 +19,9 @@ module.exports = function(app, passport, db) {
     });
 
     app.get("/activitylist", isLoggedIn, function (req, res){
-        console.log(req.user);
+        // console.log(req.user);
         db.Activity.find({}, function(err, activities) {
-           res.render('activitylist.ejs', { activities: activities });
+           res.render('activitylist.ejs', { activities: activities, currentUser: req.user });
         })
     });
 
