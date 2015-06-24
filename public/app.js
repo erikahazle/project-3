@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 
+>>>>>>> 95dbfde4105e52f62828bb584dd02fe557aa664e
 // Google maps integration
 var geocoder;
 var map;
@@ -8,6 +11,7 @@ var addresses = [];
 function initialize() {
   geocoder = new google.maps.Geocoder();
     var latlng = new google.maps.LatLng(51.50722, -0.12750);
+
     var mapOptions = {
       zoom: 13,
       minZoom: 12,
@@ -17,7 +21,7 @@ function initialize() {
       zoomControl: true,
       zoomControlOptions: {
       style: google.maps.ZoomControlStyle.SMALL
-      },
+      }
     }
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 }
