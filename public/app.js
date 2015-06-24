@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 95dbfde4105e52f62828bb584dd02fe557aa664e
 // Google maps integration
 var geocoder;
 var map;
