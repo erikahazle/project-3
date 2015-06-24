@@ -3,15 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Activities</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <!-- Foundation Scripts -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/normalize.css" rel="stylesheet">
-    <script src="./app.js"></script>
-    <link rel="stylesheet" href="./styles/style.css">
-    <header>
-      <% include ./partials/navigation %>
-    </header>
+    <% include ./partials/header %>
+</head>
+<body>
+   <header>
+    <% include ./partials/navigation %>
+  </header>
   <h1>Activities</h1>
   <div class="container">
     <ul class="large-block-grid-1">
@@ -39,11 +36,6 @@
     </ul>
   </div>
 </body>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.1.2/mustache.js"></script>
-  <script src="./app.js"></script>
-
   <script type="x-tmpl-mustache" id="activity-items-template">
   <li class="list-group-item">{{ title }}
     <span class="label label-default">{{ description }}</span>
@@ -57,4 +49,5 @@
     </button>
   </li>
 </script>
+  <% include ./partials/footer %>
 </html>
