@@ -7,6 +7,7 @@ var addresses = [];
 function initialize() {
   geocoder = new google.maps.Geocoder();
     var latlng = new google.maps.LatLng(51.50722, -0.12750);
+
     var mapOptions = {
       zoom: 13,
       minZoom: 12,
@@ -16,7 +17,7 @@ function initialize() {
       zoomControl: true,
       zoomControlOptions: {
       style: google.maps.ZoomControlStyle.SMALL
-      },
+      }
     }
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 }
