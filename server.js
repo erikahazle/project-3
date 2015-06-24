@@ -16,7 +16,7 @@ var session      = require('express-session');
 
 app.use(express.static(__dirname + '/public'));
 
-// var configDB = require('./config/database.js');
+var configDB = require('./config/database.js');
 
 // mongoose.connect('mongodb://localhost/babypassdb');
 
