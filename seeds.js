@@ -20,41 +20,6 @@ var activity4 = {
   };
 
 
-db.User.create({
-    local: {
-      name: 'Fiona Morris',
-      email: 'fido@gmail.com',
-      phone: '021 3347 1459',
-      role: 'Vendor', 
-      password: 'password1'
-  }
-}, function(err, user){
-  db.Activity.create(activity4, function(err, activity) {
-    console.log('activity has been created');
-    user.local.activities.push(activity);
-    user.save();
-    console.log(user);
-  })
-});
-
-// -- user created by brian wed 24th 13:34
-db.User.create({
-    local: {
-      name: 'Tina Morgan',
-      email: 'timo@gmail.com',
-      phone: '020 3217 8759',
-      role: 'Vendor', 
-      password: 'password2'
-  }
-}, function(err, user){
-  db.Activity.create(activity88, function(err, activity) {
-    console.log('activity88 has been created');
-    user.local.activities.push(activity);
-    user.save();
-    console.log(user);
-  })
-});
-
 // ==== activities +++++++++
 var activity1 = {
   title: 'Active Physical Play',
@@ -125,6 +90,28 @@ var activity5 = {
     date: Date('2015-06-15')
   };
 
+  var activity89 = {
+    title: "Christchurch Toy Library",
+    address: "The Parish Room, Christchurch, Manchester Road, Isle of Dogs, Isle of dogs , London, E14 9BN",
+    image: "activity8.jpg",
+    description: "This play session is for carers and 0 - 2 1/2 year olds. You can then borrow the toys for a 3 week period. There are toys, crafts (eg playdough) and books, with songtime at the end. In good weather the group has use of the next-door, large, vicarage lawn. Pushchairs are left in the church entrance hall downstairs.",
+    capacity: 10,
+    age_from: 0,
+    age_to: 3,
+    date: Date('2015-06-17')
+  };
+
+    var activity90 = {
+    title: "Christchurch Toy Library",
+    address: "The Parish Room, Christchurch, Manchester Road, Isle of Dogs, Isle of dogs , London, E14 9BN",
+    image: "activity8.jpg",
+    description: "This play session is for carers and 0 - 2 1/2 year olds. You can then borrow the toys for a 3 week period. There are toys, crafts (eg playdough) and books, with songtime at the end. In good weather the group has use of the next-door, large, vicarage lawn. Pushchairs are left in the church entrance hall downstairs.",
+    capacity: 10,
+    age_from: 0,
+    age_to: 3,
+    date: Date('2015-06-20')
+  };
+
 // var activity6 = {
 //     title: "Half Moon Young Peoples Theatre",
 //     address: "43, White Horse Rd, London, E1 0ND",
@@ -161,42 +148,63 @@ var activity5 = {
 //   };
 
 
-
-// --------
-
-// var activity17 = {
-//     title: "V&A Museum of Childhood Sensory Pod",
-//     address: "Cambridge Heath Rd, London, E2 9PA",
-//     image: "activity17.jpg",
-//     description: "Amid the plethora of playthings and child-related artefacts, the Sensory Pod is a cosy corner of impressions and illuminations. With an assortment of water- and bubble-filled columns and mirrors creating a dazzling mini maze, your baby will be surrounded by a kaleidoscope of colour and movement. Little ones can either sit or stand right up close to get touchy-feely and explore surfaces.",
-//     capacity: 10,
-//     age_from: 0,
-//     age_to: 3,
-//     date: Date('2015-07-07')
-//   };
+var activity17 = {
+    title: "V&A Museum of Childhood Sensory Pod",
+    address: "Cambridge Heath Rd, London, E2 9PA",
+    image: "activity17.jpg",
+    description: "Amid the plethora of playthings and child-related artefacts, the Sensory Pod is a cosy corner of impressions and illuminations. With an assortment of water- and bubble-filled columns and mirrors creating a dazzling mini maze, your baby will be surrounded by a kaleidoscope of colour and movement. Little ones can either sit or stand right up close to get touchy-feely and explore surfaces.",
+    capacity: 10,
+    age_from: 0,
+    age_to: 3,
+    date: Date('2015-07-07')
+  };
 
 
-// var activity18 = {
-//     title: "National Army Museum Kids' Zone",
-//     address: "Royal Hospital Rd, London, SW3 4HT ",
-//     image: "activity18.jpg",
-//     description: "There are plenty of interactive activities on hand in this snug section designed for babies and toddlers. With everything scaled down to small proportions, tots can pull themselves up to standing position – eliciting shrieks of joy from babies and parents alike.",
-//     capacity: 10,
-//     age_from: 2,
-//     age_to: 4,
-//     date: Date('2015-07-16')
-//   };
+var activity18 = {
+    title: "National Army Museum Kids' Zone",
+    address: "Royal Hospital Rd, London, SW3 4HT ",
+    image: "activity18.jpg",
+    description: "There are plenty of interactive activities on hand in this snug section designed for babies and toddlers. With everything scaled down to small proportions, tots can pull themselves up to standing position – eliciting shrieks of joy from babies and parents alike.",
+    capacity: 10,
+    age_from: 2,
+    age_to: 4,
+    date: Date('2015-07-16')
+  };
 
-// var activity19 = {
-//     title: "The Bee's Knees Indoor Children's Garden",
-//     address: "166 Lavender Hill, Battersea, London, SW11 5TN",
-//     image: "activity19.jpg",
-//     description: "A gentle world of softly undulating ‘hills’, this chill-out zone conjures up a rural idyll fashioned after Teletubbies. There’s ample space for babies to practise crawling and climbing through explorative play amid the warm colours and scatter cushions.",
-//     capacity: 10,
-//     age_from: 2,
-//     age_to: 4,
-//     date: Date('2015-07-29')
-//   };
+
+var activity22 = {
+    title: "V&A Museum of Childhood Sensory Pod",
+    address: "Cambridge Heath Rd, London, E2 9PA",
+    image: "activity17.jpg",
+    description: "Amid the plethora of playthings and child-related artefacts, the Sensory Pod is a cosy corner of impressions and illuminations. With an assortment of water- and bubble-filled columns and mirrors creating a dazzling mini maze, your baby will be surrounded by a kaleidoscope of colour and movement. Little ones can either sit or stand right up close to get touchy-feely and explore surfaces.",
+    capacity: 10,
+    age_from: 0,
+    age_to: 3,
+    date: Date('2015-07-07')
+  };
+
+
+var activity23 = {
+    title: "National Army Museum Kids' Zone",
+    address: "Royal Hospital Rd, London, SW3 4HT ",
+    image: "activity18.jpg",
+    description: "There are plenty of interactive activities on hand in this snug section designed for babies and toddlers. With everything scaled down to small proportions, tots can pull themselves up to standing position – eliciting shrieks of joy from babies and parents alike.",
+    capacity: 10,
+    age_from: 2,
+    age_to: 4,
+    date: Date('2015-07-16')
+  };
+
+var activity19 = {
+    title: "The Bee's Knees Indoor Children's Garden",
+    address: "166 Lavender Hill, Battersea, London, SW11 5TN",
+    image: "activity19.jpg",
+    description: "A gentle world of softly undulating ‘hills’, this chill-out zone conjures up a rural idyll fashioned after Teletubbies. There’s ample space for babies to practise crawling and climbing through explorative play amid the warm colours and scatter cushions.",
+    capacity: 10,
+    age_from: 2,
+    age_to: 4,
+    date: Date('2015-07-29')
+  };
 
 
 // var activity20 = {
@@ -222,16 +230,38 @@ var activity5 = {
 //     date: Date('2015-06-25')
 //   };
 
-// var activity77 = {
-//     title: "Stratford Circus",
-//     address: "Theatre Square, Stratford, Stratford, E15",
-//     image: "activity7.jpeg",
-//     description: "Stratford Circus - A performing arts venue, putting our community centre stage. 'Stratford Circus is an incubator for young imaginations and if imagination is celebrated and nurtured it will provide the next generation of performance makers and audiences.’Paloma Faith, Artistic Ambassador for Stratford Circus",
-//     capacity: 10,
-//     age_from: 2,
-//     age_to: 4,
-//     date: Date('2015-07-20')
-//   };
+var activity77 = {
+    title: "Stratford Circus",
+    address: "Theatre Square, Stratford, Stratford, E15",
+    image: "activity7.jpeg",
+    description: "Stratford Circus - A performing arts venue, putting our community centre stage. 'Stratford Circus is an incubator for young imaginations and if imagination is celebrated and nurtured it will provide the next generation of performance makers and audiences.’Paloma Faith, Artistic Ambassador for Stratford Circus",
+    capacity: 10,
+    age_from: 2,
+    age_to: 4,
+    date: Date('2015-07-20')
+  };
+
+  var activity78 = {
+    title: "Stratford Circus",
+    address: "Theatre Square, Stratford, Stratford, E15",
+    image: "activity7.jpeg",
+    description: "Stratford Circus - A performing arts venue, putting our community centre stage. 'Stratford Circus is an incubator for young imaginations and if imagination is celebrated and nurtured it will provide the next generation of performance makers and audiences.’Paloma Faith, Artistic Ambassador for Stratford Circus",
+    capacity: 10,
+    age_from: 2,
+    age_to: 4,
+    date: Date('2015-07-23')
+  };
+
+  var activity79 = {
+    title: "Stratford Circus",
+    address: "Theatre Square, Stratford, Stratford, E15",
+    image: "activity7.jpeg",
+    description: "Stratford Circus - A performing arts venue, putting our community centre stage. 'Stratford Circus is an incubator for young imaginations and if imagination is celebrated and nurtured it will provide the next generation of performance makers and audiences.’Paloma Faith, Artistic Ambassador for Stratford Circus",
+    capacity: 10,
+    age_from: 2,
+    age_to: 4,
+    date: Date('2015-07-25')
+  };
 
 
 
@@ -333,167 +363,164 @@ var activity5 = {
 
 // -----
 
-// db.User.create({
-//     name: 'Malcolm Moore',
-//     email: 'malc@talktalk.net',
-//     phone: '020 3567 2249',
-//     role: 'Vendor'
-// }, function(err, user){
+db.User.create({
+    local: {
+      name: 'Fiona Morris',
+      email: 'fido@gmail.com',
+      phone: '021 3347 1459',
+      role: 'Vendor', 
+      password: 'password1'
+  }
+}, function(err, user){
+  db.Activity.create(activity4, function(err, activity) {
+    console.log('activity has been created');
+    user.local.activities.push(activity);
+    user.save();
+    console.log(user);
+  })
+});
 
-//   db.Activity.create(activity17, function(err, activity) {
-//     console.log('activity17 has been created');
-//     user.activities.push(activity);
-//     user.save();
-//   })
-//   db.Activity.create(activity18, function(err, activity) {
-//     console.log('activity18 has been created');
-//     user.activities.push(activity);
-//     user.save();
-//   })
-// });
+// -- user created by brian wed 24th 13:34
+db.User.create({
+    local: {
+      name: 'Tina Morgan',
+      email: 'timo@gmail.com',
+      phone: '020 3217 8759',
+      role: 'Vendor', 
+      password: 'password2'
+  }
+}, function(err, user){
+  db.Activity.create(activity88, function(err, activity) {
+    console.log('activity88 has been created');
+    user.local.activities.push(activity);
+    user.save();
+    console.log(user);
+  })
+  db.Activity.create(activity89, function(err, activity) {
+    console.log('activity89 has been created');
+    user.local.activities.push(activity);
+    user.save();
+    console.log(user);
+  })
+  db.Activity.create(activity90, function(err, activity) {
+    console.log('activity90 has been created');
+    user.local.activities.push(activity);
+    user.save();
+    console.log(user);
+  })
+});
 
-// // -------
-
-// db.User.create({
-//     name: 'Rupert Roberts',
-//     email: 'rupert@gmail.com',
-//     phone: '020 3337 1649',
-//     role: 'Vendor'
-// }, function(err, user){
-
-//   db.Activity.create(activity20, function(err, activity) {
-//     console.log('activity20 has been created');
-//     user.activities.push(activity);
-//     user.save();
-//   })
-//   db.Activity.create(activity21, function(err, activity) {
-//     console.log('activity21 has been created');
-//     user.activities.push(activity);
-//     user.save();
-//   })
-// });
-
-// // -------
-
-// db.User.create({
-//   local: {
-//     name: 'Rupert Roberts',
-//     email: 'rupert@gmail.com',
-//     phone: '020 3337 1649',
-//     role: 'Vendor',
-//     password: 'password1'
-//   }
-// }, function(err, user){
-
-//   db.Activity.create(activity20, function(err, activity) {
-//     console.log('activity20 has been created');
-//     user.local.activities.push(activity);
-//     user.save();
-//   })
-//   db.Activity.create(activity21, function(err, activity) {
-//     console.log('activity21 has been created');
-//     user.local.activities.push(activity);
-//     user.save();
-//   })
-// });
-
-// // -------
-
-// db.User.create({
-//     name: 'Amil Hassan',
-//     email: 'amilh@gmail.com',
-//     phone: '021 3337 1229',
-//     role: 'Vendor'
-// }, function(err, user){
-
-//   db.Activity.create(activity1, function(err, activity) {
-//     console.log('activity2 has been created');
-//     user.activities.push(activity);
-//     user.save();
-//   })
-//   db.Activity.create(activity2, function(err, activity) {
-//     console.log('activity2 has been created');
-//     user.activities.push(activity);
-//     user.save();
-//   })
-
-//   db.Activity.create(activity4, function(err, activity) {
-//     console.log('activity4 has been created');
-//     user.activities.push(activity);
-//     user.save();
-//   })
-//   db.Activity.create(activity5, function(err, activity) {
-//     console.log('activity5 has been created');
-//     user.activities.push(activity);
-//     user.save();
-//   })
-// });
-
-// db.User.create({
-//   local: {
-//     name: 'Amil Hassan',
-//     email: 'amilh@gmail.com',
-//     phone: '021 3337 1229',
-//     role: 'Vendor',
-//     password: 'password1'
-//   }
-// }, function(err, user){
-
-//   db.Activity.create(activity1, function(err, activity) {
-//     console.log('activity2 has been created');
-//     user.local.activities.push(activity);
-//     user.save();
-//   })
-//   db.Activity.create(activity2, function(err, activity) {
-//     console.log('activity2 has been created');
-//     user.local.activities.push(activity);
-//     user.save();
-//   })
-
-//   db.Activity.create(activity4, function(err, activity) {
-//     console.log('activity4 has been created');
-//     user.local.activities.push(activity);
-//     user.save();
-//   })
-//   db.Activity.create(activity5, function(err, activity) {
-//     console.log('activity5 has been created');
-//     user.local.activities.push(activity);
-//     user.save();
-//   })
-// });
+db.User.create({
+    local: {
+      name: 'Malcolm Moore',
+      email: 'malc@talktalk.net',
+      phone: '020 3567 2249',
+      role: 'Vendor', 
+      password: 'password3'
+  }
+}, function(err, user){
+  db.Activity.create(activity17, function(err, activity) {
+    console.log('activity17 has been created');
+    user.local.activities.push(activity);
+    user.save();
+    console.log(user);
+  })
+  db.Activity.create(activity18, function(err, activity) {
+    console.log('activity18 has been created');
+    user.local.activities.push(activity);
+    user.save();
+    console.log(user);
+  })
+});
 
 
-// // -------
+db.User.create({
+    local: {
+      name: 'Rupert Roberts',
+      email: 'rupert@gmail.com',
+      phone: '020 3337 1649',
+      role: 'Vendor', 
+      password: 'password4'
+  }
+}, function(err, user){
+  db.Activity.create(activity22, function(err, activity) {
+    console.log('activity22 has been created');
+    user.local.activities.push(activity);
+    user.save();
+    console.log(user);
+  })
+  db.Activity.create(activity23, function(err, activity) {
+    console.log('activity23 has been created');
+    user.local.activities.push(activity);
+    user.save();
+    console.log(user);
+  })
+});
+
+db.User.create({
+    local: {
+      name: 'Amil Hassan',
+      email: 'amilh@gmail.com',
+      phone: '021 3337 1229',
+      role: 'Vendor', 
+      password: 'password2'
+  }
+}, function(err, user){
+  db.Activity.create(activity77, function(err, activity) {
+    console.log('activity77 has been created');
+    user.local.activities.push(activity);
+    user.save();
+    console.log(user);
+  })
+  db.Activity.create(activity78, function(err, activity) {
+    console.log('activity78 has been created');
+    user.local.activities.push(activity);
+    user.save();
+    console.log(user);
+  })
+  db.Activity.create(activity79, function(err, activity) {
+    console.log('activity79 has been created');
+    user.local.activities.push(activity);
+    user.save();
+    console.log(user);
+  })
+});
+
+db.User.create({
+    local: {
+      name: 'Jeff Milton',
+      email: 'amilh@gmail.com',
+      phone: '021 3337 1229',
+      role: 'Vendor', 
+      password: 'password2'
+  }
+}, function(err, user){
+  db.Activity.create(activity19, function(err, activity) {
+    console.log('activity19 has been created');
+    user.local.activities.push(activity);
+    user.save();
+    console.log(user);
+  })
+});
+
+
+
+// ====== blank V E N D O R ======
+
 
 // db.User.create({
 //     local: {
-//       name: 'Jeff Milton',
-//       email: 'amilh@gmail.com',
-//       phone: '021 3337 1229',
-//       role: 'Vendor'
-//     }
-//   local: {
-//     name: 'Jeff Milton',
-//     email: 'amilh@gmail.com',
-//     phone: '021 3337 1229',
-//     role: 'Vendor',
-//     password: 'password1'
+ 
+//       password: 'password2'
 //   }
 // }, function(err, user){
-
-//   db.Activity.create(activity1, function(err, activity) {
-//     console.log('activity1 has been created');
+//   db.Activity.create(activity19, function(err, activity) {
+//     console.log('activity19 has been created');
 //     user.local.activities.push(activity);
 //     user.save();
-//   })
-//   db.Activity.create(activity2, function(err, activity) {
-//     console.log('activity2 has been created');
-//     user.local.activities.push(activity);
-//     user.save();
+//     console.log(user);
 //   })
 // });
-
-// // -------
 
 // db.User.create({
 //     name: 'Rakmil Hunoram',
