@@ -1,8 +1,8 @@
 // app/routes.js
 
-
 module.exports = function(app, passport, db) {
-    var db = require('./models/user.js');
+
+    var db = require('./models/user');
 
     app.get('/', function(req, res) {
         res.render('index.ejs');
@@ -18,9 +18,10 @@ module.exports = function(app, passport, db) {
         })
     });
 
-    app.get("/activitylist", function (req, res){
+    app.get("/activitylist", isLoggedIn, function (req, res){
+        // console.log(req.user);
         db.Activity.find({}, function(err, activities) {
-           res.render('activitylist.ejs', { activities: activities });
+           res.render('activitylist.ejs', { activities: activities, user: req.user });
         })
     });
 
@@ -38,20 +39,19 @@ module.exports = function(app, passport, db) {
         failureFlash : true
     }));
 
-    app.get('/signup', function(req, res) {
-        // if (req.params.role === 'customer') {
-        //     res.render('customer_signup.ejs', { message: req.flash('signupMessage') });
-        // } else if (req.params.role === 'vendor') {
-        //     res.render('vendor_signup.ejs', { message: req.flash('signupMessage') });
-        // } else {
-        //     res.send('Page no found');
-        // }
-        res.render('customer_signup.ejs', { message: req.flash('signupMessage') });
+    app.get('/signup/:role', function(req, res) {
+        if (req.params.role === 'customer') {
+            res.render('customer_signup.ejs', { message: req.flash('signupMessage') });
+        } else if (req.params.role === 'vendor') {
+            res.render('vendor_signup.ejs', { message: req.flash('signupMessage') });
+        } else {
+            res.send('Page no found');
+        }
     });
 
-    app.post('/signup', passport.authenticate('local-signup', {
+    app.post('/signup/customer', passport.authenticate('local-signup', {
         successRedirect : '/profile',
-        failureRedirect : '/signup',
+        failureRedirect : '/signup/customer',
         failureFlash : true
     }));
 
@@ -64,18 +64,24 @@ module.exports = function(app, passport, db) {
     // =====================================
     // FACEBOOK ROUTES =====================
     // =====================================
-    app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+    // app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
 
-    app.get('/auth/facebook/callback',
-        passport.authenticate('facebook', {
-            successRedirect : '/profile',
-            failureRedirect : '/'
-        }));
+    // app.get('/auth/facebook/callback',
+    //     passport.authenticate('facebook', {
+    //         successRedirect : '/profile',
+    //         failureRedirect : '/'
+    //     }));
 
     app.get('/logout', function(req, res) {
         req.logout();
         res.redirect('/');
     });
+
+
+
+    // **** our routes
+ 
+
 };
 
 function isLoggedIn(req, res, next) {

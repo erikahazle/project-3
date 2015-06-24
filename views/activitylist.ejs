@@ -4,28 +4,33 @@
   <meta charset="UTF-8">
   <title>Activities</title>
     <% include ./partials/header %>
-    <header>
-      <% include ./partials/navigation %>
-    </header>
+</head>
 <body>
+   <header>
+    <% include ./partials/navigation %>
+  </header>
   <h1>Activities</h1>
-<div class="row">
-  <div class="large-3 columns">summat here</div>
-  <div class="large-6 columns">and here
-    <div class="row">
-      <div class="large-3 columns">col1</div>
-      <div class="large-6 columns">col 2</div>
-      <div class="large-3 columns">col 3</div>
-    </div>
+  <div class="container">
+    <ul class="large-block-grid-1">
+      <% for(var i = 0; i < activities.length; i++) { %>
+      <div class="row">
+        <div class="small-6 large-2 columns"><img src="images/<%= activities[i].image%>"></div>
+        <div class="small-6 large-8 columns">
+        <h3 class="list_title"><%= activities[i].title%></h3>
+        <p><%= activities[i].description%></p>
+      </div>
+        <div class="small-12 large-2 columns">
+          <p>Address: <%= activities[i].address%></p>
+          <p>Age: <%= activities[i].age_from%> to <%= activities[i].age_to%></p>
+          <p>Date: <%= activities[i].date%></p>
+<!--           <p>Avail Places ??</p> -->
+          <a href="#" class="button tiny success">Press Me</a>
+          <p></p>
+        </div>
+      </div>
+      <% }%>
+    </ul>
   </div>
-  <div class="large-3 columns">finally here</div>
-</div>
-  <ul class="list-group" id="activity-ul">
-    <% for(var i = 0; i < activities.length; i++) { %>
-    <li><%= activities[i].title%></li>
-    <% }%>
-  </ul>
-
 </body>
   <script type="x-tmpl-mustache" id="activity-items-template">
   <li class="list-group-item">{{ title }}
