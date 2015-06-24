@@ -1,10 +1,26 @@
 // app/routes.js
 
-module.exports = function(app, passport) {
+
+module.exports = function(app, passport, db) {
+    var db = require('./models/user.js');
 
     app.get('/', function(req, res) {
         res.render('index.ejs');
     });
+
+    // =====================================
+    // CLIENT ACTIVITY ROUTES ==============
+    // =====================================
+
+    app.get("/activitylist", function (req, res){
+        db.Activity.find({}, function(err, activities) {
+           res.render('activitylist.ejs', { activities: activities });
+        })
+    });
+
+
+    // end of CLIENT ACTIVITY ROUTES =======
+
 
     app.get('/login', function(req, res) {
         res.render('login.ejs', { message: req.flash('loginMessage') }); 
@@ -16,14 +32,15 @@ module.exports = function(app, passport) {
         failureFlash : true
     }));
 
-    app.get('/signup/:role', function(req, res) {
-        if (req.params.role === 'customer') {
-            res.render('customer_signup.ejs', { message: req.flash('signupMessage') });
-        } else if (req.params.role === 'vendor') {
-            res.render('vendor_signup.ejs', { message: req.flash('signupMessage') });
-        } else {
-            res.send('Page no found');
-        }
+    app.get('/signup', function(req, res) {
+        // if (req.params.role === 'customer') {
+        //     res.render('customer_signup.ejs', { message: req.flash('signupMessage') });
+        // } else if (req.params.role === 'vendor') {
+        //     res.render('vendor_signup.ejs', { message: req.flash('signupMessage') });
+        // } else {
+        //     res.send('Page no found');
+        // }
+        res.render('customer_signup.ejs', { message: req.flash('signupMessage') });
     });
 
     app.post('/signup', passport.authenticate('local-signup', {
