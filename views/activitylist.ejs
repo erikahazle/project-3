@@ -20,11 +20,15 @@
         <p><%= activities[i].description%></p>
       </div>
         <div class="small-12 large-2 columns">
-          <p>Address: <%= activities[i].address%></p>
+          <% var addr_array = activities[i].address.split(",")%>
+          <p>Address:</p>
+          <% for(var j = 0; j < addr_array.length; j++){ %>
+            <li><%= addr_array[j] %></li>
+          <% } %>
           <p>Age: <%= activities[i].age_from%> to <%= activities[i].age_to%></p>
           <p>Date: <%= activities[i].date%></p>
 <!--           <p>Avail Places ??</p> -->
-          <a href="#" class="button tiny success">Press Me</a>
+          <a href="#" class="button tiny success">Book</a>
           <p></p>
         </div>
       </div>
