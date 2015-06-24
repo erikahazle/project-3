@@ -9,24 +9,26 @@
    <header>
     <% include ./partials/navigation %>
   </header>
-  <h1>Activities</h1>
+  <h1 class='list_title'>Activities</h1>
   <div class="container">
     <ul class="large-block-grid-1">
       <% for(var i = 0; i < activities.length; i++) { %>
       <div class="row">
-        <div class="small-6 large-2 columns"><img src="images/<%= activities[i].image%>"></div>
+        <div class="small-6 large-2 columns"><img class='img_activity' src="images/<%= activities[i].image%>"></div>
         <div class="small-6 large-8 columns">
         <h3 class="list_title"><%= activities[i].title%></h3>
         <p><%= activities[i].description%></p>
       </div>
         <div class="small-12 large-2 columns">
           <% var addr_array = activities[i].address.split(",")%>
-          <p>Address:</p>
-          <% for(var j = 0; j < addr_array.length; j++){ %>
-            <li><%= addr_array[j] %></li>
-          <% } %>
+          <ul class='address'>
+            <li class='list_title'>Address:</li>
+            <% for(var j = 0; j < addr_array.length; j++){ %>
+              <li class='address'><%= addr_array[j] %></li>
+            <% } %>
+          </ul>
           <p>Age: <%= activities[i].age_from%> to <%= activities[i].age_to%></p>
-          <p>Date: <%= activities[i].date%></p>
+          <h6 class='list_title'>Date:</h6><span><%= activities[i].date%></span>
 <!--           <p>Avail Places ??</p> -->
           <a href="#" class="button tiny success">Book</a>
           <p></p>
