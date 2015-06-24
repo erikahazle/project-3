@@ -1,8 +1,8 @@
 // app/routes.js
 
-
 module.exports = function(app, passport, db) {
-    var db = require('./models/user.js');
+
+    var db = require('./models/user');
 
     app.get('/', function(req, res) {
         res.render('index.ejs');
@@ -18,7 +18,8 @@ module.exports = function(app, passport, db) {
         })
     });
 
-    app.get("/activitylist", function (req, res){
+    app.get("/activitylist", isLoggedIn, function (req, res){
+        console.log(req.user);
         db.Activity.find({}, function(err, activities) {
            res.render('activitylist.ejs', { activities: activities });
         })
@@ -64,18 +65,24 @@ module.exports = function(app, passport, db) {
     // =====================================
     // FACEBOOK ROUTES =====================
     // =====================================
-    app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+    // app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
 
-    app.get('/auth/facebook/callback',
-        passport.authenticate('facebook', {
-            successRedirect : '/profile',
-            failureRedirect : '/'
-        }));
+    // app.get('/auth/facebook/callback',
+    //     passport.authenticate('facebook', {
+    //         successRedirect : '/profile',
+    //         failureRedirect : '/'
+    //     }));
 
     app.get('/logout', function(req, res) {
         req.logout();
         res.redirect('/');
     });
+
+
+
+    // **** our routes
+ 
+
 };
 
 function isLoggedIn(req, res, next) {

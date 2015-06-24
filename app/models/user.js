@@ -1,8 +1,7 @@
 var mongoose = require('mongoose');
-
 var bcrypt   = require('bcrypt-nodejs');
-mongoose.connect("mongodb://localhost/babypassdb");
 
+mongoose.connect("mongodb://localhost/babypassdb");
 
 var ActivitySchema = mongoose.Schema({
   title: String,
@@ -41,7 +40,10 @@ userSchema.methods.validPassword = function(password) {
     return bcrypt.compareSync(password, this.local.password);
 };
 
+var User = mongoose.model('User', userSchema);
+var Activity = mongoose.model('Activity', ActivitySchema);
+
 module.exports = {
-    'User': mongoose.model('User', userSchema),
-    'Activity': mongoose.model('Activity', ActivitySchema)
+    'User': User,
+    'Activity': Activity
 }
