@@ -18,13 +18,21 @@ module.exports = function(app, passport, db) {
         })
     });
 
-    app.get("/activitylist", isLoggedIn, function (req, res){
-        // console.log(req.user);
+    app.get("/activitylist", function (req, res){
         db.Activity.find({}, function(err, activities) {
-           res.render('activitylist.ejs', { activities: activities, user: req.user });
+           res.render('activitylist', { activities: activities });
         })
     });
 
+    app.post('/bookactivity', isLoggedIn, function(req, res) {
+        db.Activity.findById(req.body.activity_id, function(err, activity) {
+            db.User.findOne({'_id': req.user._id}, function(err, user) {
+                user.local.activities.push(activity);
+                user.save();
+                res.send(user);
+            })
+        })
+    })
 
     // end of CLIENT ACTIVITY ROUTES =======
 

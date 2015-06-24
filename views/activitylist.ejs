@@ -10,7 +10,7 @@
     <% include ./partials/navigation %>
   </header>
   <h1>Activities</h1>
-  <div class="container">
+  <div class="container activity-list">
     <ul class="large-block-grid-1">
       <% for(var i = 0; i < activities.length; i++) { %>
       <div class="row">
@@ -28,13 +28,13 @@
           <p>Age: <%= activities[i].age_from%> to <%= activities[i].age_to%></p>
           <p>Date: <%= activities[i].date%></p>
 <!--           <p>Avail Places ??</p> -->
-          <a href="#" class="button tiny success">Book</a>
-          <p></p>
+          <button class="button tiny success book-button" data-activity="<%= activities[i].id %>">Book</button>
         </div>
       </div>
       <% }%>
     </ul>
   </div>
+
 </body>
   <script type="x-tmpl-mustache" id="activity-items-template">
   <li class="list-group-item">{{ title }}

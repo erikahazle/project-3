@@ -55,23 +55,22 @@ $(document).ready(function() {
       codeAddress();
     })
   }
-  
-  // ajax request to server
-  // response holds array of activities returned.
-  $.get('/activitylist', function(response) {
-    var activities = response;
-    console.log(response.activities);
-    // console.log(activities);
-    // (index, ) is the index position in the array
-    // $.each(activities, function(index, activity) {
-    //   console.log(activity);
-    //   // pull #activity-item-template from the DOM of the script form
-    //   // activity, is the data...  $('#activity-ul') is where appending to.
-    //   View.render($('#activity-item-template'), activity, $('#activity-ul'));
-    // })
-  })
 
+  $('.book-button').on('click', function(e) {
+    e.preventDefault();
+    $this = $(this);
+    console.log('button click')
+    var activity_id = ($(this).data('activity'));
+    $.ajax({
+      method: 'POST',
+      url: '/bookactivity',
+      dataType: 'json',
+      data: { activity_id: activity_id }
+    }).done(function(response) {
+      $this.html('Booked');
+      $this.css('background-color', 'pink');
+    })
+  })
+  
 });
-  //   $.get('/activity/:id', function(response) {
-  //     console.log("yo" + this);
-// })
+
