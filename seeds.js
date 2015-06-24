@@ -11,7 +11,7 @@ db.Activity.collection.remove();
 var activity4 = {
     title: "Mudlarks Children's Gallery",
     address: "Museum in Docklands, No. 1 Warehouse, West India Quay, Hertsmere Road, London, E14 4AL",
-    image: "",
+    image: "activity4.jpeg",
     description: "Great modern museum visually telling the history of London and Docklands with a special 'Mudlarks' gallery for children. Under fives can explore the soft play area with its DLR train and giant props, while older children can get to grips with hands-on interactives that bring the history of London’s Docks to life. There are also an exciting programme of activities for chidren under five and their carers. The Gallery is suitable for all under 12's. Nappy changing facilities, a cafe and restaurant (both with high chairs). Close to child friendly pubs, restaurants and Canary Wharf shopping.",
     capacity: 10,
     age_from: 1,
