@@ -3,6 +3,8 @@
 <html>
 <head>
     <title>Node Authentication</title>
+    <% include ./partials/header %>
+
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
     <style>
@@ -10,6 +12,9 @@
     </style>
 </head>
 <body>
+    <header>
+      <% include ./partials/navigation %>
+    </header>
 <div class="container">
 
 <div class="col-sm-6 col-sm-offset-3">
@@ -50,5 +55,6 @@
 </div>
 
 </div>
+<% include ./partials/footer %>
 </body>
 </html>
