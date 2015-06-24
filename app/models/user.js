@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
+
+var bcrypt   = require('bcrypt-nodejs');
 mongoose.connect("mongodb://localhost/babypassdb");
-var bcrypt = require('bcrypt-nodejs');
+
 
 var ActivitySchema = mongoose.Schema({
   title: String,
@@ -14,10 +16,11 @@ var ActivitySchema = mongoose.Schema({
 });
 
 var userSchema = mongoose.Schema({
-    local            : {
+    local: {
         email: String,
         password: String,
         name: String,
+        phone: String,
         role: String,
         activities: [ ActivitySchema ]
     }
