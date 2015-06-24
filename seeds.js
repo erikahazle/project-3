@@ -7,7 +7,7 @@ repl.context.db = db;
 
 // == clear database +++++++++
 db.User.collection.remove();
-db.Activity.collection.remove();
+// db.Activity.collection.remove();
 
 var activity4 = {
     title: "Mudlarks Children's Gallery",
