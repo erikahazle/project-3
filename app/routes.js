@@ -21,7 +21,7 @@ module.exports = function(app, passport, db) {
     app.get("/activitylist", isLoggedIn, function (req, res){
         // console.log(req.user);
         db.Activity.find({}, function(err, activities) {
-           res.render('activitylist.ejs', { activities: activities, currentUser: req.user });
+           res.render('activitylist.ejs', { activities: activities, user: req.user });
         })
     });
 
@@ -47,7 +47,6 @@ module.exports = function(app, passport, db) {
         } else {
             res.send('Page no found');
         }
-        // res.render('customer_signup.ejs', { message: req.flash('signupMessage') });
     });
 
     app.post('/signup/customer', passport.authenticate('local-signup', {

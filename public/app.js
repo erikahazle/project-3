@@ -59,7 +59,8 @@ $(document).ready(function() {
   // response holds array of activities returned.
   $.get('/activitylist', function(response) {
     var activities = response;
-    console.log(activities);
+    console.log(response.activities);
+    // console.log(activities);
     // (index, ) is the index position in the array
     // $.each(activities, function(index, activity) {
     //   console.log(activity);
