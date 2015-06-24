@@ -37,6 +37,24 @@ db.User.create({
   })
 });
 
+// -- user created by brian wed 24th 13:34
+db.User.create({
+    local: {
+      name: 'Tina Morgan',
+      email: 'timo@gmail.com',
+      phone: '020 3217 8759',
+      role: 'Vendor', 
+      password: 'password2'
+  }
+}, function(err, user){
+  db.Activity.create(activity88, function(err, activity) {
+    console.log('activity88 has been created');
+    user.local.activities.push(activity);
+    user.save();
+    console.log(user);
+  })
+});
+
 // ==== activities +++++++++
 var activity1 = {
   title: 'Active Physical Play',
@@ -94,6 +112,17 @@ var activity5 = {
     age_from: 3,
     age_to: 8,
     date: Date('2015-07-25')
+  };
+
+  var activity88 = {
+    title: "Christchurch Toy Library",
+    address: "The Parish Room, Christchurch, Manchester Road, Isle of Dogs, Isle of dogs , London, E14 9BN",
+    image: "activity8.jpg",
+    description: "This play session is for carers and 0 - 2 1/2 year olds. You can then borrow the toys for a 3 week period. There are toys, crafts (eg playdough) and books, with songtime at the end. In good weather the group has use of the next-door, large, vicarage lawn. Pushchairs are left in the church entrance hall downstairs.",
+    capacity: 10,
+    age_from: 0,
+    age_to: 3,
+    date: Date('2015-06-15')
   };
 
 // var activity6 = {
@@ -205,16 +234,7 @@ var activity5 = {
 //   };
 
 
-// var activity88 = {
-//     title: "Christchurch Toy Library",
-//     address: "The Parish Room, Christchurch, Manchester Road, Isle of Dogs, Isle of dogs , London, E14 9BN",
-//     image: "activity8.jpg",
-//     description: "This play session is for carers and 0 - 2 1/2 year olds. You can then borrow the toys for a 3 week period. There are toys, crafts (eg playdough) and books, with songtime at the end. In good weather the group has use of the next-door, large, vicarage lawn. Pushchairs are left in the church entrance hall downstairs.",
-//     capacity: 10,
-//     age_from: 0,
-//     age_to: 3,
-//     date: Date('2015-06-15')
-//   };
+
 
 // // ==== end of Activity definitions ++++++++++++++++
 
