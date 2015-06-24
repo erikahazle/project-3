@@ -1,17 +1,17 @@
 var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
-<<<<<<< HEAD
-// var configAuth = require('./auth');
-=======
 
-// var User = require('../app/models/user');    
+// var configAuth = require('./auth');
+
+
+var User = require('../app/models/user');    
 
 var configAuth = require('./auth');
->>>>>>> 8307b44f9c36639b4bbb9a51122cc0e921a42cd0
+
 
 module.exports = function(passport) {
 
-    var User = require('../app/models/user.js');
+    // var User = require('../app/models/user.js');
 
     passport.serializeUser(function(user, done) {
         done(null, user.id);
