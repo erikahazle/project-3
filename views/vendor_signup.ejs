@@ -1,54 +1,48 @@
 <!-- views/signup.ejs -->
 <!doctype html>
 <html>
-<head>
-    <title>Node Authentication</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
-    <style>
-        body { padding-top:80px; }
-    </style>
-</head>
-<body>
-<div class="container">
+    <head>
+        <title>Passport Authentication</title>
+        <% include ./partials/header %>
+    </head>
+    
+    <body>
+        <header>
+          <% include ./partials/navigation %>
+        </header>
+    
+        <% if (message.length > 0) { %>
+            <div class="alert alert-danger"><%= message %></div>
+        <% } %>
+    
+        <div class="row">
+            <div class="small-3 columns"><p></p></div>
+            <div class="small-6 columns">                   
+                <br>
+                <form action="/signup/vendor" method="post">
+                  <fieldset>
+                    <legend><h2>
+                    <i class="fi-foot"></i>  Vendor Signup</h2></legend>
 
-<div class="col-sm-6 col-sm-offset-3">
+                    <label>Name</label>
+                    <input type="text" class="form-control" name="name" placeholder="Enter name...">
+                    
 
-    <h1><span class="fa fa-sign-in"></span> Signup</h1>
+                    <label>Email</label>
+                    <input type="text" class="form-control" name="email" placeholder="Enter email...">
 
-    <% if (message.length > 0) { %>
-        <div class="alert alert-danger"><%= message %></div>
-    <% } %>
+                    <label>Password</label>
+                    <input type="password" class="form-control" name="password" placeholder="Enter password...">
+                  
+                    <input type="hidden" name="role" value="Vendor">
+                    <button type="submit" class="btn btn-warning btn-lg">Signup</button>
 
-    <form action="/signup" method="post">
-        <div class="form-group">
-            <label>Name</label>
-            <input type="text" class="form-control" name="name">
+                  </fieldset>
+                </form>
+
+            <div class="small-3 columns"><p></p></div>
         </div>
-        <div class="form-group">
-            <label>Postcode</label>
-            <input type="text" class="form-control" name="postcode">
-        </div>
-        <div class="form-group">
-            <label>Email</label>
-            <input type="text" class="form-control" name="email">
-        </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" name="password">
-        </div>
-        <input type="hidden" name="role" value="Vendor">
 
-        <button type="submit" class="btn btn-warning btn-lg">Signup</button>
-    </form>
-
-    <hr>
-
-    <p>Already have an account? <a href="/login">Login</a></p>
-    <p>Or go <a href="/">home</a>.</p>
-
-</div>
-
-</div>
-</body>
+    <% include ./partials/footer %>
+    </body>
 </html>
