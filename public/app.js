@@ -50,7 +50,10 @@ $(document).ready(function() {
         addresses.push(activity.address);
         // console.log(addresses);
         // $('.activity-feed-wrapper').append('<div>' + activity.title + activity.address + '</div>');
-        $('.activity-feed-wrapper').append('<div><a href="/' + activity._id + '">' + activity.image + '</a></div>');
+        // --- Brians changes from here ...
+        $('.activity-feed-wrapper').append('<a href="' + activity._id + '"><li><div class="activity-info">' + activity.title + '</div><a href="/' + activity._id + '"><img class="activity_img" src="images/' + activity.image + '"></a></li></a>');
+        // ---- To here ...
+
       })
       codeAddress();
     })
@@ -62,12 +65,7 @@ $(document).ready(function() {
     var activities = response;
     console.log(response.activities);
   })
-        $('.activity-feed-wrapper').append('<div><a href="/' + activity._id + '">' + activity.title + '</a></div>');
-      })  
-      codeAddress();
-    })
-  }
->>>>>>> 7a6c5e5530769d939b4e4f27dd73bc0243050ab5
+
 
   $('.book-button').on('click', function(e) {
     e.preventDefault();
@@ -84,12 +82,12 @@ $(document).ready(function() {
       $this.css('background-color', 'pink');
     })
   })
+
+  // -- More of Brians changes here
+  $(".activity-feed-wrapper").mouseover(function () {
+    console.log("Actioned mouse over on " + activity._id)
+  });
+  // ----
   
 });
-<<<<<<< HEAD
-    // $.get('/activity/:id', function(response) {
-    //   console.log("yo" + this);
-    // })
-=======
 
->>>>>>> 7a6c5e5530769d939b4e4f27dd73bc0243050ab5
