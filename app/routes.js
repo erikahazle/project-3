@@ -66,6 +66,9 @@ module.exports = function(app, passport, db) {
 
     app.post('/bookactivity', isLoggedIn, function(req, res) {
         db.Activity.findById(req.body.activity_id, function(err, activity) {
+            activity.number_of_bookings.push(req.user._id);
+            activity.save();
+            console.log(activity);
             db.User.findOne({'_id': req.user._id}, function(err, user) {
                 user.local.activities.push(activity);
                 user.save();
