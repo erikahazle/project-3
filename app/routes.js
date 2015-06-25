@@ -5,7 +5,7 @@ module.exports = function(app, passport, db) {
     var db = require('./models/user');
 
     app.get('/', function(req, res) {
-        res.render('index.ejs');
+        res.render('index.ejs', {user: req.user});
     });
 
     app.get('/login', function(req, res) {
@@ -59,7 +59,6 @@ module.exports = function(app, passport, db) {
 
     app.get("/activitylist", function (req, res){
         db.Activity.find({}, function(err, activities) {
-            // console.log(activities);
            res.render('activitylist', { activities: activities, user: req.user });
         })
     });
@@ -85,7 +84,7 @@ module.exports = function(app, passport, db) {
             db.Activity.findById({'_id': req.body.activity_id}, function(err, activity) {
                 var activityIndex = user_activities.indexOf(activity);
                 user_activities.splice(activityIndex, 1);
-                db.User.update({'_id': user._id}, {$set: {local: {activities: user_activities}}}, function(err, user) {
+                db.User.update({'_id': req.user._id}, {$set: {local: {email: user.local.email, name: user.local.name, password: user.local.password, activities: user_activities}}}, function(err, user) {
                     res.send(user);
                 });
             })

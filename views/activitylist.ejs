@@ -31,7 +31,15 @@
           <p>Age: <%= activities[i].age_from%> to <%= activities[i].age_to%></p>
           <h6 class='list_title'>Date:</h6><span><%= activities[i].date%></span>
           <p><%= activities[i].number_of_bookings.length%> bookings</p>
-          <button class="button tiny success book-button" data-activity="<%= activities[i].id %>">Book</button>
+          <% if (user) { %>
+              <% if (user.local.activities.indexOf(activities[i]) === -1) { %>
+                <button class="button tiny success book-button" data-activity="<%= activities[i].id %>">Book</button>
+              <% } else { %>
+                <button class="button tiny success book-button" data-activity="<%= activities[i].id %>">Booked</button>
+              <% } %>
+          <% } else { %>
+          <a href="/signup/customer" class="sign-up-link-activities"><button class="button tiny success" data-activity="<%= activities[i].id %>">Sign up to book</button></a>
+          <% } %>
         </div>
       </div>
       <% }%>
