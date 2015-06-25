@@ -5,10 +5,49 @@ module.exports = function(app, passport, db) {
     var db = require('./models/user');
 
     app.get('/', function(req, res) {
-        res.render('index.ejs');
+        res.render('index.ejs', {user: req.user});
     });
 
-    // =====================================
+    app.get('/login', function(req, res) {
+        res.render('login.ejs', { message: req.flash('loginMessage') }); 
+    });
+
+    app.post('/login', passport.authenticate('local-login', {
+        successRedirect : '/profile',
+        failureRedirect : '/login',
+        failureFlash : true
+    }));
+
+    app.get('/signup/:role', function(req, res) {
+        if (req.params.role === 'customer') {
+            res.render('customer_signup.ejs', { message: req.flash('signupMessage') });
+        } else if (req.params.role === 'vendor') {
+            res.render('vendor_signup.ejs', { message: req.flash('signupMessage') });
+        } else {
+            res.send('Page no found');
+        }
+    });
+
+    app.post('/signup/customer', passport.authenticate('local-signup', {
+        successRedirect : '/profile',
+        failureRedirect : '/signup/customer',
+        failureFlash : true
+    }));
+
+    app.get('/profile', isLoggedIn, function(req, res) {
+        res.render('profile.ejs', {
+            user : req.user
+        });
+    });
+
+    app.get('/logout', function(req, res) {
+        req.logout();
+        res.redirect('/');
+    });
+
+
+
+     // =====================================
     // CLIENT ACTIVITY ROUTES ==============
     // =====================================
 
@@ -26,7 +65,6 @@ module.exports = function(app, passport, db) {
 
     app.get("/activitylist", function (req, res){
         db.Activity.find({}, function(err, activities) {
-            // console.log(activities);
            res.render('activitylist', { activities: activities, user: req.user });
         })
     });
@@ -45,6 +83,20 @@ module.exports = function(app, passport, db) {
         })
     })
 
+    app.post('/deleteactivity', isLoggedIn, function(req, res) {
+        db.User.findById({'_id': req.user._id}, function(err, user) {
+            var user_activities = user.local.activities;
+            var activity = req.body.activity_id;
+            db.Activity.findById({'_id': req.body.activity_id}, function(err, activity) {
+                var activityIndex = user_activities.indexOf(activity);
+                user_activities.splice(activityIndex, 1);
+                db.User.update({'_id': req.user._id}, {$set: {local: {email: user.local.email, name: user.local.name, password: user.local.password, activities: user_activities}}}, function(err, user) {
+                    res.send(user);
+                });
+            })
+            
+        })
+    })
 
     // end of CLIENT ACTIVITY ROUTES =======
 
