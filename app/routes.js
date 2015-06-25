@@ -18,6 +18,12 @@ module.exports = function(app, passport, db) {
         })
     });
 
+    app.get("/imagelist", function (req, res) {
+        db.Activity.find({}, function(err, activities){
+            res.send(activities);
+        })
+    })
+
     app.get("/activitylist", function (req, res){
         db.Activity.find({}, function(err, activities) {
             console.log(activities);
@@ -34,6 +40,7 @@ module.exports = function(app, passport, db) {
             })
         })
     })
+
 
     // end of CLIENT ACTIVITY ROUTES =======
 

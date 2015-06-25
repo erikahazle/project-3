@@ -43,17 +43,16 @@ $(document).ready(function() {
   if ($('#map-canvas').length > 0) {
     google.maps.event.addDomListener(window, 'load', initialize);
     $.get('/activities', function(response) {
-      var activities = response;
+      var activities = response
       $.each(response, function(index, activity) {
         // codeAddress(activity.address);
         // Pushes address to an array named addresses. This is used because we want to add many pins to map. 
         addresses.push(activity.address);
         // console.log(addresses);
         // $('.activity-feed-wrapper').append('<div>' + activity.title + activity.address + '</div>');
-        // --- Brians changes from here ...
-        $('.activity-feed-wrapper').append('<a href="' + activity._id + '"><li><div class="activity-info">' + activity.title + '</div><a href="/' + activity._id + '"><img class="activity_img" src="images/' + activity.image + '"></a></li></a>');
+        // --- Brians changes from here moved to own listner below...
+          // $('.activity-feed-wrapper').append('<a href="' + activity._id + '"><li><div class="activity-info">' + activity.title + '</div><a href="/' + activity._id + '"><img class="activity_img" src="images/' + activity.image + '"></a></li></a>'); 
         // ---- To here ...
-
       })
       codeAddress();
     })
@@ -63,7 +62,7 @@ $(document).ready(function() {
   // response holds array of activities returned.
   $.get('/activitylist', function(response) {
     var activities = response;
-    console.log(response.activities);
+    // console.log(response.activities);
   })
 
 
@@ -83,11 +82,15 @@ $(document).ready(function() {
     })
   })
 
-  // -- More of Brians changes here
-  $(".activity-feed-wrapper").mouseover(function () {
-    console.log("Actioned mouse over on " + activity._id)
-  });
-  // ----
-  
+// -------  Brian Added Stuff Here -------------
+  if ($('#imgset').length > 0) {
+    $.get('/imagelist', function(response) {
+        $.each(response, function(index, activity) {
+           $('.activity-feed-wrapper').append('<a href="' + activity._id + '"><li><div class="activity-info">' + activity.title + '</div><a href="/' + activity._id + '"><img class="activity_img" src="images/' + activity.image + '"></a></li></a>');
+        })
+    })
+  }
+// -------  up to here -------------
+
 });
 
