@@ -75,6 +75,7 @@ module.exports = function(app, passport, db) {
         }
     });
 
+// Customer Profile Views
     app.post('/signup/customer', passport.authenticate('local-signup', {
         successRedirect : '/profile',
         failureRedirect : '/signup/customer',
@@ -86,6 +87,21 @@ module.exports = function(app, passport, db) {
             user : req.user
         });
     });
+
+// Vendor Profile Views - Made by Nick, designed to mess up Erika's passport routes ;-)
+    app.post('/signup/vendor', passport.authenticate('local-signup', {
+        successRedirect : '/vendor_profile',
+        failureRedirect : '/signup/vendor_signup',
+        failureFlash : true
+    }));
+
+    app.get('/vendor_profile', isLoggedIn, function(req, res) {
+        res.render('vendor_profile.ejs', {
+            user : req.user
+        });
+    });
+
+
 
     // =====================================
     // FACEBOOK ROUTES =====================
