@@ -12,7 +12,7 @@ var ActivitySchema = mongoose.Schema({
   capacity: Number,
   age_from: Number,
   age_to: Number,
-  number_of_spaces: Array
+  number_of_bookings: Array
 });
 
 var userSchema = mongoose.Schema({
