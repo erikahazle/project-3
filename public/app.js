@@ -54,18 +54,6 @@ $(document).ready(function() {
       codeAddress();
     })
   }
-  
-  // ajax request to server
-  // response holds array of activities returned.
-  $.get('/activitylist', function(response) {
-    var activities = response;
-    console.log(response.activities);
-  })
-        $('.activity-feed-wrapper').append('<div><a href="/' + activity._id + '">' + activity.title + '</a></div>');
-      })  
-      codeAddress();
-    })
-  }
 
   $('.book-button').on('click', function(e) {
     e.preventDefault();

@@ -11,7 +11,8 @@ var ActivitySchema = mongoose.Schema({
   date: Date,
   capacity: Number,
   age_from: Number,
-  age_to: Number
+  age_to: Number,
+  number_of_spaces: Array
 });
 
 var userSchema = mongoose.Schema({
