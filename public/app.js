@@ -41,19 +41,32 @@ function codeAddress() {
 
 $(document).ready(function() {
 
-
   if ($('#map-canvas').length > 0) {
     google.maps.event.addDomListener(window, 'load', initialize);
     $.get('/activities', function(response) {
+      var activities = response;
       $.each(response, function(index, activity) {
         addresses.push(activity.address);
         // console.log(addresses);
         // $('.activity-feed-wrapper').append('<div>' + activity.title + activity.address + '</div>');
+        $('.activity-feed-wrapper').append('<div><a href="/' + activity._id + '">' + activity.image + '</a></div>');
+      })
+      codeAddress();
+    })
+  }
+  
+  // ajax request to server
+  // response holds array of activities returned.
+  $.get('/activitylist', function(response) {
+    var activities = response;
+    console.log(response.activities);
+  })
         $('.activity-feed-wrapper').append('<div><a href="/' + activity._id + '">' + activity.title + '</a></div>');
       })  
       codeAddress();
     })
   }
+>>>>>>> 7a6c5e5530769d939b4e4f27dd73bc0243050ab5
 
   $('.book-button').on('click', function(e) {
     e.preventDefault();
@@ -72,4 +85,10 @@ $(document).ready(function() {
   })
   
 });
+<<<<<<< HEAD
+    // $.get('/activity/:id', function(response) {
+    //   console.log("yo" + this);
+    // })
+=======
 
+>>>>>>> 7a6c5e5530769d939b4e4f27dd73bc0243050ab5
