@@ -57,6 +57,12 @@ module.exports = function(app, passport, db) {
         })
     });
 
+    app.get("/imagelist", function (req, res) {
+        db.Activity.find({}, function(err, activities){
+            res.send(activities);
+        })
+    })
+
     app.get("/activitylist", function (req, res){
         db.Activity.find({}, function(err, activities) {
            res.render('activitylist', { activities: activities, user: req.user });
@@ -98,12 +104,12 @@ module.exports = function(app, passport, db) {
     // VENDOR ACTIVITY ROUTES ==============
     // =====================================
 
-    app.get("/vendor_activity", isLoggedIn, function (req, res){
-        // console.log(req.user);
-        db.Activity.find({}, function(err, activities) {
-           res.render('vendor_activity.ejs', { activities: activities, user: req.user });
-        })
-    });
+    // app.get("/vendor_activity", isLoggedIn, function (req, res){
+    //     // console.log(req.user);
+    //     db.Activity.find({}, function(err, activities) {
+    //        res.render('vendor_activity.ejs', { activities: activities, user: req.user });
+    //     })
+    // });
 
     // end of VENDOR ACTIVITY ROUTES =======
 
