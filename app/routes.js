@@ -106,6 +106,78 @@ module.exports = function(app, passport, db) {
     });
 
     // end of VENDOR ACTIVITY ROUTES =======
+<<<<<<< HEAD
+=======
+
+
+    app.get('/login', function(req, res) {
+        res.render('login.ejs', { message: req.flash('loginMessage') }); 
+    });
+
+    app.post('/login', passport.authenticate('local-login', {
+        successRedirect : '/profile',
+        failureRedirect : '/login',
+        failureFlash : true
+    }));
+
+    app.get('/signup/:role', function(req, res) {
+        if (req.params.role === 'customer') {
+            res.render('customer_signup.ejs', { message: req.flash('signupMessage') });
+        } else if (req.params.role === 'vendor') {
+            res.render('vendor_signup.ejs', { message: req.flash('signupMessage') });
+        } else {
+            res.send('Page no found');
+        }
+    });
+
+// Customer Profile Views
+    app.post('/signup/customer', passport.authenticate('local-signup', {
+        successRedirect : '/profile',
+        failureRedirect : '/signup/customer',
+        failureFlash : true
+    }));
+
+    app.get('/profile', isLoggedIn, function(req, res) {
+        res.render('profile.ejs', {
+            user : req.user
+        });
+    });
+
+// Vendor Profile Views - Made by Nick, designed to mess up Erika's passport routes ;-)
+    app.post('/signup/vendor', passport.authenticate('local-signup', {
+        successRedirect : '/vendor_profile',
+        failureRedirect : '/signup/vendor_signup',
+        failureFlash : true
+    }));
+
+    app.get('/vendor_profile', isLoggedIn, function(req, res) {
+        res.render('vendor_profile.ejs', {
+            user : req.user
+        });
+    });
+
+
+
+    // =====================================
+    // FACEBOOK ROUTES =====================
+    // =====================================
+    // app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+
+    // app.get('/auth/facebook/callback',
+    //     passport.authenticate('facebook', {
+    //         successRedirect : '/profile',
+    //         failureRedirect : '/'
+    //     }));
+
+    app.get('/logout', function(req, res) {
+        req.logout();
+        res.redirect('/');
+    });
+
+
+
+    // **** our routes
+>>>>>>> 67c024d18e7d853371647f8150ab45d3faa0e8da
  
 
 };
