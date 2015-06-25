@@ -8,13 +8,25 @@ module.exports = function(app, passport, db, moment) {
         res.render('index.ejs', {user: req.user});
     });
 
-    app.get('/login', function(req, res) {
-        res.render('login.ejs', { message: req.flash('loginMessage') }); 
+    app.get('/login/:role', function(req, res) {
+        if (req.params.role === 'customer') {
+            res.render('login.ejs', { message: req.flash('loginMessage') }); 
+        } else if (req.params.role === 'vendor') {
+            res.render('vendor_login.ejs', { message: req.flash('loginMessage') }); 
+        } else {
+            res.send('Page no found');
+        }
     });
 
-    app.post('/login', passport.authenticate('local-login', {
-        successRedirect : '/profile',
-        failureRedirect : '/login',
+    app.post('/login/customer', passport.authenticate('local-login', {
+        successRedirect : '/profile/customer',
+        failureRedirect : '/login/customer',
+        failureFlash : true
+    }));
+
+    app.post('/login/vendor', passport.authenticate('local-login', {
+        successRedirect : '/profile/vendor',
+        failureRedirect : '/login/vendor',
         failureFlash : true
     }));
 
@@ -24,7 +36,7 @@ module.exports = function(app, passport, db, moment) {
         } else if (req.params.role === 'vendor') {
             res.render('vendor_signup.ejs', { message: req.flash('signupMessage') });
         } else {
-            res.send('Page no found');
+            res.render('index.ejs');
         }
     });
 
@@ -34,10 +46,14 @@ module.exports = function(app, passport, db, moment) {
         failureFlash : true
     }));
 
-    app.get('/profile', isLoggedIn, function(req, res) {
-        res.render('profile.ejs', {
-            user : req.user
-        });
+    app.get('/profile/:role', isLoggedIn, function(req, res) {
+        if (req.user.local.role === 'Customer') {
+            res.render('profile.ejs', {user : req.user});
+        } else if (req.user.local.role === 'Vendor') {
+            res.render('vendor_profile.ejs', {user : req.user});
+        } else {
+            res.send('Page no found');
+        }
     });
 
     app.get('/logout', function(req, res) {
