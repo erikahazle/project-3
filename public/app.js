@@ -54,8 +54,6 @@ $(document).ready(function() {
       codeAddress();
     })
   }
-  
-
 
   $('.book-button').on('click', function(e) {
     e.preventDefault();
@@ -71,6 +69,10 @@ $(document).ready(function() {
       $this.html('Booked');
       $this.css('background-color', 'pink');
     })
+  })
+
+  $('.cancel-activity').on('click', function(e) {
+    console.log($(this));
   })
   
 });
