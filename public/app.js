@@ -39,6 +39,22 @@ function codeAddress() {
       }
     }
 
+/****************************
+USER ACTIONS
+****************************/
+
+function deleteActivity(button, activityId) {
+  $.ajax({
+    type: 'POST',
+    url: '/deleteactivity',
+    data: {activity_id: activityId},
+    dataType: 'json'
+  }).done(function(response) {
+    console.log(response);
+    button.parent().remove();
+  })
+}
+
 $(document).ready(function() {
 
   if ($('#map-canvas').length > 0) {
@@ -72,7 +88,9 @@ $(document).ready(function() {
   })
 
   $('.cancel-activity').on('click', function(e) {
-    console.log($(this));
+    var activityDeleteButton = $(this);
+    var activity_id = $(this).data('activity');
+    deleteActivity(activityDeleteButton, activity_id);
   })
   
 });

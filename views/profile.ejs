@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>Node Authentication</title>
+        <title>BabyPass</title>
             <% include ./partials/header %>
     </head>
 <body>
@@ -14,10 +14,12 @@
                 <h1>Bookings</h1>
                     <div class="panel callout radius classes-booked-profile">
                         <% for (var i = user.local.activities.length - 1; i >= 0; i--) { %>
-                            <h5><%= user.local.activities[i].title %></h5>
-                            <p><strong>Location</strong>: <%= user.local.activities[i].address %></p>
-                            <p><%= user.local.activities[i].date %></p>
-                            <button class="cancel-activity" data-activity="<%= user.local.activities[i]._id %>">Cancel</button>
+                            <div class="classes-booked">
+                                <h5><%= user.local.activities[i].title %></h5>
+                                <p><strong>Location</strong>: <%= user.local.activities[i].address %></p>
+                                <p><%= user.local.activities[i].date %></p>
+                                <button class="cancel-activity" data-activity="<%= user.local.activities[i]._id %>">Cancel</button>
+                            </div>
                         <% } %>
                     </div>
             </div>  

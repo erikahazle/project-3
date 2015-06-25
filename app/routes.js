@@ -8,50 +8,6 @@ module.exports = function(app, passport, db) {
         res.render('index.ejs');
     });
 
-    // =====================================
-    // CLIENT ACTIVITY ROUTES ==============
-    // =====================================
-
-    app.get("/activities", function (req, res){
-        db.Activity.find({}, function(err, activities) {
-           res.send(activities);
-        })
-    });
-
-    app.get("/activitylist", function (req, res){
-        db.Activity.find({}, function(err, activities) {
-            // console.log(activities);
-           res.render('activitylist', { activities: activities, user: req.user });
-        })
-    });
-
-    app.post('/bookactivity', isLoggedIn, function(req, res) {
-        db.Activity.findById(req.body.activity_id, function(err, activity) {
-            db.User.findOne({'_id': req.user._id}, function(err, user) {
-                user.local.activities.push(activity);
-                user.save();
-                console.log(user);
-                res.send(user);
-            })
-        })
-    })
-
-    // end of CLIENT ACTIVITY ROUTES =======
-
-    // =====================================
-    // VENDOR ACTIVITY ROUTES ==============
-    // =====================================
-
-    app.get("/vendor_activity", isLoggedIn, function (req, res){
-        // console.log(req.user);
-        db.Activity.find({}, function(err, activities) {
-           res.render('vendor_activity.ejs', { activities: activities, user: req.user });
-        })
-    });
-
-    // end of VENDOR ACTIVITY ROUTES =======
-
-
     app.get('/login', function(req, res) {
         res.render('login.ejs', { message: req.flash('loginMessage') }); 
     });
@@ -84,17 +40,6 @@ module.exports = function(app, passport, db) {
         });
     });
 
-    // =====================================
-    // FACEBOOK ROUTES =====================
-    // =====================================
-    // app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
-
-    // app.get('/auth/facebook/callback',
-    //     passport.authenticate('facebook', {
-    //         successRedirect : '/profile',
-    //         failureRedirect : '/'
-    //     }));
-
     app.get('/logout', function(req, res) {
         req.logout();
         res.redirect('/');
@@ -102,7 +47,63 @@ module.exports = function(app, passport, db) {
 
 
 
-    // **** our routes
+     // =====================================
+    // CLIENT ACTIVITY ROUTES ==============
+    // =====================================
+
+    app.get("/activities", function (req, res){
+        db.Activity.find({}, function(err, activities) {
+           res.send(activities);
+        })
+    });
+
+    app.get("/activitylist", function (req, res){
+        db.Activity.find({}, function(err, activities) {
+            // console.log(activities);
+           res.render('activitylist', { activities: activities, user: req.user });
+        })
+    });
+
+    app.post('/bookactivity', isLoggedIn, function(req, res) {
+        db.Activity.findById(req.body.activity_id, function(err, activity) {
+            db.User.findOne({'_id': req.user._id}, function(err, user) {
+                user.local.activities.push(activity);
+                user.save();
+                console.log(user);
+                res.send(user);
+            })
+        })
+    })
+
+    app.post('/deleteactivity', isLoggedIn, function(req, res) {
+        db.User.findById({'_id': req.user._id}, function(err, user) {
+            var user_activities = user.local.activities;
+            var activity = req.body.activity_id;
+            db.Activity.findById({'_id': req.body.activity_id}, function(err, activity) {
+                var activityIndex = user_activities.indexOf(activity);
+                user_activities.splice(activityIndex, 1);
+                db.User.update({'_id': user._id}, {$set: {local: {activities: user_activities}}}, function(err, user) {
+                    res.send(user);
+                });
+            })
+            
+        })
+    })
+
+    // end of CLIENT ACTIVITY ROUTES =======
+
+    // =====================================
+    // VENDOR ACTIVITY ROUTES ==============
+    // =====================================
+
+    app.get("/vendor_activity", isLoggedIn, function (req, res){
+        // console.log(req.user);
+        db.Activity.find({}, function(err, activities) {
+           res.render('vendor_activity.ejs', { activities: activities, user: req.user });
+        })
+    });
+
+    // end of VENDOR ACTIVITY ROUTES =======
  
 
 };
