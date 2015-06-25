@@ -17,12 +17,12 @@
             <ul class="right">
               <li><a href="/activitylist">#Activity List</a></li>
               <% if (user) { %>
-                <li><a href="/profile" class="secondary button">
+                <li><a href="/profile/<%= user.local.role.toLowerCase() %>" class="secondary button">
                 Hello <%= user.local.name %></a></li>
                 <li><a href="/logout" class="sucess button">Logout</a></li>
               <% } else { %>
                 <li><a href="/signup/customer">SIGNUP</a></li>
-                <li><a href="/login" class="info button small">LOGIN</a></li>
+                <li><a href="/login/customer" class="info button small">LOGIN</a></li>
               <% } %>
             </ul>
         </section>
