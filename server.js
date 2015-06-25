@@ -1,7 +1,3 @@
-// server.js
-
-// set up ======================================================================
-// get all the tools we need
 var express  = require('express');
 var app      = express();
 var port     = process.env.PORT || 3000;
@@ -17,8 +13,6 @@ var session      = require('express-session');
 app.use(express.static(__dirname + '/public'));
 
 var configDB = require('./config/database.js');
-
-// mongoose.connect(configDB.url);
 
 require('./config/passport')(passport);
 

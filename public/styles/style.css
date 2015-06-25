@@ -2,6 +2,10 @@
   height: 500px;
   width: 100%; }
 
+.border {
+  border: solid 1px black;
+}
+
 .display-none {
   display: none; }
 
@@ -67,4 +71,3 @@
 }
 
 /*# sourceMappingURL=style.css.map */
-

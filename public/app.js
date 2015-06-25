@@ -62,8 +62,34 @@ $(document).ready(function() {
     var activities = response;
     console.log(response.activities);
   })
+        $('.activity-feed-wrapper').append('<div><a href="/' + activity._id + '">' + activity.title + '</a></div>');
+      })  
+      codeAddress();
+    })
+  }
+>>>>>>> 7a6c5e5530769d939b4e4f27dd73bc0243050ab5
 
+  $('.book-button').on('click', function(e) {
+    e.preventDefault();
+    $this = $(this);
+    console.log('button click')
+    var activity_id = ($(this).data('activity'));
+    $.ajax({
+      method: 'POST',
+      url: '/bookactivity',
+      dataType: 'json',
+      data: { activity_id: activity_id }
+    }).done(function(response) {
+      $this.html('Booked');
+      $this.css('background-color', 'pink');
+    })
+  })
+  
 });
+<<<<<<< HEAD
     // $.get('/activity/:id', function(response) {
     //   console.log("yo" + this);
     // })
+=======
+
+>>>>>>> 7a6c5e5530769d939b4e4f27dd73bc0243050ab5

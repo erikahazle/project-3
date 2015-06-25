@@ -9,6 +9,7 @@
    <header>
     <% include ./partials/navigation_session %>
   </header>
+  <div class="container activity-list">
   <h1 class='list_title'>Activities</h1>
   <div class="container">
     <ul class="large-block-grid-1">
@@ -29,15 +30,13 @@
           </ul>
           <p>Age: <%= activities[i].age_from%> to <%= activities[i].age_to%></p>
           <h6 class='list_title'>Date:</h6><span><%= activities[i].date%></span>
-<!--           <p>Avail Places ??</p> -->
-          <a href="#" class="button tiny success">Book</a>
-          <p></p>
+          <button class="button tiny success book-button" data-activity="<%= activities[i].id %>">Book</button>
         </div>
       </div>
       <% }%>
     </ul>
   </div>
-</body>
 
+</body>
   <% include ./partials/footer %>
 </html>
