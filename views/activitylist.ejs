@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment-with-locales.min.js"></script>
   <meta charset="UTF-8">
   <title>Activities</title>
     <% include ./partials/header %>
@@ -29,7 +30,8 @@
             <% } %>
           </ul>
           <p>Age: <%= activities[i].age_from%> to <%= activities[i].age_to%></p>
-          <h6 class='list_title'>Date:</h6><span><%= activities[i].date%></span>
+
+          <h6 class='list_title'>Date:</h6><span><%= moment(activities[i].date).format("Do MMM YYYY");%></span>
           <p><%= activities[i].number_of_bookings.length%> bookings</p>
           <% if (user) { %>
               <% if (user.local.activities.indexOf(activities[i]) === -1) { %>

@@ -1,6 +1,6 @@
 // app/routes.js
 
-module.exports = function(app, passport, db) {
+module.exports = function(app, passport, db, moment) {
 
     var db = require('./models/user');
 
@@ -65,7 +65,7 @@ module.exports = function(app, passport, db) {
 
     app.get("/activitylist", function (req, res){
         db.Activity.find({}, function(err, activities) {
-           res.render('activitylist', { activities: activities, user: req.user });
+           res.render('activitylist', { activities: activities, user: req.user, moment: moment });
         })
     });
 
