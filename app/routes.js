@@ -20,7 +20,7 @@ module.exports = function(app, passport, db) {
 
     app.get("/activitylist", function (req, res){
         db.Activity.find({}, function(err, activities) {
-            console.log(activities);
+            // console.log(activities);
            res.render('activitylist', { activities: activities, user: req.user });
         })
     });
@@ -30,6 +30,7 @@ module.exports = function(app, passport, db) {
             db.User.findOne({'_id': req.user._id}, function(err, user) {
                 user.local.activities.push(activity);
                 user.save();
+                console.log(user);
                 res.send(user);
             })
         })

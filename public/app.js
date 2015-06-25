@@ -28,6 +28,7 @@ function codeAddress() {
 // Loop for adding multiple addresses to the map
   for (var x = 0; x < addresses.length; x++) {
     $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address='+addresses[x]+'&sensor=false', null, function (data) {
+        // console.log(data.results);
         var p = data.results[0].geometry.location
         var latlng = new google.maps.LatLng(p.lat, p.lng);
           new google.maps.Marker({
@@ -45,8 +46,6 @@ $(document).ready(function() {
     google.maps.event.addDomListener(window, 'load', initialize);
     $.get('/activities', function(response) {
       $.each(response, function(index, activity) {
-        // codeAddress(activity.address);
-        // Pushes address to an array named addresses. This is used because we want to add many pins to map. 
         addresses.push(activity.address);
         // console.log(addresses);
         // $('.activity-feed-wrapper').append('<div>' + activity.title + activity.address + '</div>');
