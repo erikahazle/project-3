@@ -66,7 +66,6 @@ $(document).ready(function() {
       codeAddress();
     })
   }
->>>>>>> 7a6c5e5530769d939b4e4f27dd73bc0243050ab5
 
   $('.book-button').on('click', function(e) {
     e.preventDefault();
@@ -85,10 +84,4 @@ $(document).ready(function() {
   })
   
 });
-<<<<<<< HEAD
-    // $.get('/activity/:id', function(response) {
-    //   console.log("yo" + this);
-    // })
-=======
 
->>>>>>> 7a6c5e5530769d939b4e4f27dd73bc0243050ab5
