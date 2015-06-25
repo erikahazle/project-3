@@ -1,5 +1,11 @@
+/*Orange #EB7F00
+Off White #F3FFE2
+Light blue #ACF0F2
+Medium blue #1695A3
+Dark Blue #225378*/
+
 #homepage-body {
-  background-color: #252a40;
+  background-color: #225378;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -33,13 +39,15 @@
 #headline-font {
   font-family: font-family: 'Open Sans', sans-serif;
   font-weight: bold;
-  color: white;
+  color: #F3FFE2;
   font-size: 2em;
 }
 
 .lead {
-  color: white;
-  font-size: bold;
+  color: #F3FFE2;
+  font-weight: bold;
+  font-family: font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
 }
 .btn-dl {
   color: inherit;
@@ -50,20 +58,10 @@
 }
 
 .btn-dl:hover {
-  background-color: #fff;
-  border-color: #fff;
-  color: #957bba;
+  background-color: #F3FFE2;
+  border-color: #F3FFE2;
+  color: #1695A3;
 }
-
-
-
-#map-canvas {
-  height: 500px;
-  width: 100%; }
-
-#small-map-canvas {
-  height: 100px;
-  width: 100%; }
 
 .display-none {
   display: none; }
@@ -71,13 +69,13 @@
 .class-booked {
   width: 500px;
   height: 300px;
-  background-color: pink; }
+  background-color: white; }
 
 .full-width {
   max-width: 1400px; }
 
 .footer {
-  background-color: #2980b9;
+  background-color: #EB7F00;
   padding: 2rem 4rem;
   text-align: center;
   color: #fff; }
@@ -93,7 +91,7 @@
   margin-bottom: 10px; }
 .footer p {
   font-weight: 300;
-  font-size: .8rem; }
+  font-size: 1em; }
 
 @media only screen and (min-width: 40.063em) {
   .footer .columns:nth-child(n+2) {
@@ -107,5 +105,3 @@
     font-size: .8rem; }
   .footer-links li {
     margin-top: .5rem; }
-
-/*# sourceMappingURL=style.css.map */
