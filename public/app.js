@@ -51,7 +51,7 @@ $(document).ready(function() {
         // console.log(addresses);
         // $('.activity-feed-wrapper').append('<div>' + activity.title + activity.address + '</div>');
         $('.activity-feed-wrapper').append('<div><a href="/' + activity._id + '">' + activity.title + '</a></div>');
-      })
+      })  
       codeAddress();
     })
   }

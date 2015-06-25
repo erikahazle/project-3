@@ -20,7 +20,8 @@ module.exports = function(app, passport, db) {
 
     app.get("/activitylist", function (req, res){
         db.Activity.find({}, function(err, activities) {
-           res.render('activitylist', { activities: activities });
+            console.log(activities);
+           res.render('activitylist', { activities: activities, user: req.user });
         })
     });
 
