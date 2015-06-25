@@ -15,6 +15,7 @@ function initialize() {
       scrollwheel: false,
       disableDefaultUI: true,
       zoomControl: true,
+      animation: google.maps.Animation.DROP,
       styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]}],
       zoomControlOptions: {
       style: google.maps.ZoomControlStyle.SMALL
@@ -22,12 +23,16 @@ function initialize() {
     }
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 }
+  
+// Create the info window on the map
+
 
 // Function for GeoCoding (we may have to put in a proper API key as we could potentially make to many calls. If you get errors this could be the cause)
 function codeAddress() {
 // Loop for adding multiple addresses to the map
   for (var x = 0; x < addresses.length; x++) {
     $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address='+addresses[x]+'&sensor=false', null, function (data) {
+        // console.log(data.results);
         var p = data.results[0].geometry.location
         var latlng = new google.maps.LatLng(p.lat, p.lng);
           new google.maps.Marker({
@@ -45,8 +50,6 @@ $(document).ready(function() {
     $.get('/activities', function(response) {
       var activities = response
       $.each(response, function(index, activity) {
-        // codeAddress(activity.address);
-        // Pushes address to an array named addresses. This is used because we want to add many pins to map. 
         addresses.push(activity.address);
         // console.log(addresses);
         // $('.activity-feed-wrapper').append('<div>' + activity.title + activity.address + '</div>');

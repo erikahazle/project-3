@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Node Authentication</title>
+            <% include ./partials/header %>
+    </head>
+<body>
+    <header>
+      <% include ./partials/navigation_session %>
+    </header>
+
+        <div class="row">
+            <div class="small-7 columns">
+                <h1><%= user.local.name %>'s Vendor Profile Page</h1>
+                    <div class="panel callout radius">
+                        <h5>Class Signups</h5>
+                        <p>Here we can put how many people are signed up for a class.</p>
+                    </div>
+            </div>  
+            
+            <div class="small-5 columns">
+            <h1>Profile Details</h1>
+                <strong>name</strong>: <%= user.local.name %><br>
+                <strong>email</strong>: <%= user.local.email %><br> 
+            </div>
+        </div>
+
+    <% include ./partials/footer %>
+    </body>
+</html>

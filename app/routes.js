@@ -26,16 +26,20 @@ module.exports = function(app, passport, db) {
 
     app.get("/activitylist", function (req, res){
         db.Activity.find({}, function(err, activities) {
-            console.log(activities);
+            // console.log(activities);
            res.render('activitylist', { activities: activities, user: req.user });
         })
     });
 
     app.post('/bookactivity', isLoggedIn, function(req, res) {
         db.Activity.findById(req.body.activity_id, function(err, activity) {
+            activity.number_of_bookings.push(req.user._id);
+            activity.save();
+            console.log(activity);
             db.User.findOne({'_id': req.user._id}, function(err, user) {
                 user.local.activities.push(activity);
                 user.save();
+                console.log(user);
                 res.send(user);
             })
         })
@@ -78,6 +82,7 @@ module.exports = function(app, passport, db) {
         }
     });
 
+// Customer Profile Views
     app.post('/signup/customer', passport.authenticate('local-signup', {
         successRedirect : '/profile',
         failureRedirect : '/signup/customer',
@@ -89,6 +94,21 @@ module.exports = function(app, passport, db) {
             user : req.user
         });
     });
+
+// Vendor Profile Views - Made by Nick, designed to mess up Erika's passport routes ;-)
+    app.post('/signup/vendor', passport.authenticate('local-signup', {
+        successRedirect : '/vendor_profile',
+        failureRedirect : '/signup/vendor_signup',
+        failureFlash : true
+    }));
+
+    app.get('/vendor_profile', isLoggedIn, function(req, res) {
+        res.render('vendor_profile.ejs', {
+            user : req.user
+        });
+    });
+
+
 
     // =====================================
     // FACEBOOK ROUTES =====================

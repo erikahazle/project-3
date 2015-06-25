@@ -1,10 +1,29 @@
+#homepage-body {
+  background-color: #252a40;
+  -webkit-font-smoothing: antialiased;
+}
+
 #map-canvas {
   height: 500px;
-  width: 100%; }
+  /*width: 800px;*/
+  width: 100%; 
+  margin: 30px;  
+}
 
 .border {
   border: solid 1px black;
 }
+
+.hero {
+  padding-bottom: 500px;
+  background-image: url("../images/index_landing.jpeg");
+  background-size: cover;
+  box-shadow: inset 0px 0px 0 2000px rgba(0,0,0,0.2);
+  opacity: none;
+  top: 50%;
+}
+
+
 
 .display-none {
   display: none; }
