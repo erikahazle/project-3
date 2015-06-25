@@ -106,8 +106,6 @@ module.exports = function(app, passport, db) {
     });
 
     // end of VENDOR ACTIVITY ROUTES =======
-<<<<<<< HEAD
-=======
 
 
     app.get('/login', function(req, res) {
@@ -177,7 +175,6 @@ module.exports = function(app, passport, db) {
 
 
     // **** our routes
->>>>>>> 67c024d18e7d853371647f8150ab45d3faa0e8da
  
 
 };
