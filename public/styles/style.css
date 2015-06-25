@@ -17,11 +17,10 @@
 
 .hero {
   padding-bottom: 500px;
-  background-image: url("../images/index_landing.jpeg");
+  background-image: url("https://download.unsplash.com/18/run.JPG");
   background-size: cover;
   box-shadow: inset 0px 0px 0 2000px rgba(0,0,0,0.2);
   opacity: none;
-  top: 50%;
 }
 
 

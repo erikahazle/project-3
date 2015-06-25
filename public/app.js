@@ -3,7 +3,11 @@ var geocoder;
 var map;
 var addresses = [];
 
-// Function to create and place a google map. Sets the lat and long to London
+
+/**************************
+GOOGLE MAPS
+**************************/
+
 function initialize() {
   geocoder = new google.maps.Geocoder();
     var latlng = new google.maps.LatLng(51.50722, -0.12750);
@@ -67,24 +71,11 @@ $(document).ready(function() {
       var activities = response
       $.each(response, function(index, activity) {
         addresses.push(activity.address);
-        // console.log(addresses);
-        // $('.activity-feed-wrapper').append('<div>' + activity.title + activity.address + '</div>');
-        // --- Brians changes from here moved to own listner below...
-          // $('.activity-feed-wrapper').append('<a href="' + activity._id + '"><li><div class="activity-info">' + activity.title + '</div><a href="/' + activity._id + '"><img class="activity_img" src="images/' + activity.image + '"></a></li></a>'); 
-        // ---- To here ...
       })
       codeAddress();
     })
   }
   
-  // ajax request to server
-  // response holds array of activities returned.
-  $.get('/activitylist', function(response) {
-    var activities = response;
-    // console.log(response.activities);
-  })
-
-
   $('.book-button').on('click', function(e) {
     e.preventDefault();
     $this = $(this);
@@ -107,7 +98,6 @@ $(document).ready(function() {
     deleteActivity(activityDeleteButton, activity_id);
   })
   
-// -------  Brian Added Stuff Here -------------
   if ($('#imgset').length > 0) {
     $.get('/imagelist', function(response) {
         $.each(response, function(index, activity) {
@@ -115,7 +105,6 @@ $(document).ready(function() {
         })
     })
   }
-// -------  up to here -------------
 
 })
 
