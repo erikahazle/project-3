@@ -89,14 +89,14 @@ $(document).ready(function() {
     }).done(function(response) {
       $this.html('Booked');
       $this.css('background-color', 'pink');
-    })
-  })
+    });
+  });
 
   $('.cancel-activity').on('click', function(e) {
     var activityDeleteButton = $(this);
     var activity_id = $(this).data('activity');
     deleteActivity(activityDeleteButton, activity_id);
-  })
+  });
   
   if ($('#imgset').length > 0) {
     $.get('/imagelist', function(response) {

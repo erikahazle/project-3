@@ -33,7 +33,7 @@
 
           <h6>Date:</h6><span><%= moment(activities[i].date).format("Do MMM YYYY");%></span>
           <p><%= activities[i].number_of_bookings.length%> bookings</p>
-          <% if (user) { %>
+          <% if (user && user.local.role === 'Customer') { %>
               <% if (user.local.activities.indexOf(activities[i]) === -1) { %>
                 <button class="button tiny success book-button" data-activity="<%= activities[i].id %>">Book</button>
               <% } else { %>

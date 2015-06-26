@@ -17,7 +17,7 @@
             <ul class="right">
               <li><a href="/activitylist">#Activity List</a></li>
               <% if (user) { %>
-                <li><a href="/profile/<%= user.local.role.toLowerCase() %>" class="secondary button">
+                <li><a href="/profile/<%= user.local.role %>" class="secondary button">
                 Hello <%= user.local.name %></a></li>
                 <li><a href="/logout" class="sucess button">Logout</a></li>
               <% } else { %>

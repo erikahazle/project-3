@@ -12,8 +12,19 @@
         <div class="row">
             <div class="small-7 columns">
                 <h1>Vendor Profile Page</h1>
-                    <div class="panel callout radius">
-                        <h5>Class you're running:</h5>
+                <div>
+                    <a href="/activities/new"><button class="button tiny success js-add-class">Add a class</button></a>
+                </div>
+                        <h5>Classes you're running:</h5>
+                        <div class="panel callout radius classes-booked-profile">
+                        <% for (var i = user.local.activities.length - 1; i >= 0; i--) { %>
+                            <div class="classes-booked">
+                                <h5><%= user.local.activities[i].title %></h5>
+                                <p><strong>Location</strong>: <%= user.local.activities[i].address %></p>
+                                <p><%= user.local.activities[i].date %></p>
+                                <button class="cancel-activity" data-activity="<%= user.local.activities[i]._id %>">Cancel</button>
+                            </div>
+                        <% } %>
                     </div>
             </div>  
             
