@@ -6,7 +6,7 @@
   <title>Activities</title>
     <% include ./partials/header %>
 </head>
-<body>
+<body id="activitypage-body">
    <header>
     <% include ./partials/navigation_session %>
   </header>
@@ -46,24 +46,24 @@
     <ul class="large-block-grid-1">
       <% for(var i = 0; i < activities.length; i++) { %>
       <div class="row">
-        <div class="small-6 large-2 columns"><img class='img_activity' src="images/<%= activities[i].image%>"></div>
-        <div class="small-6 large-8 columns">
+        <div class="small-6 large-4 columns"><img class='img_activity' src="images/<%= activities[i].image%>"></div>
+        <div class="small-6 large-5 columns">
         <h3 class="list_title"><%= activities[i].title%></h3>
         <p><%= activities[i].description%></p>
       </div>
-        <div class="small-12 large-2 columns">
+        <div class="small-12 large-3 columns">
           <% var addr_array = activities[i].address.split(",")%>
           <ul class='address'>
-            <li class='list_title'>Address:</li>
+            <li>Address:</li>
             <% for(var j = 0; j < addr_array.length; j++){ %>
-              <li class='address'><%= addr_array[j] %></li>
+              <li id='address' class='smaller-text'><%= addr_array[j] %></li>
             <% } %>
           </ul>
           <p>Age: <%= activities[i].age_from%> to <%= activities[i].age_to%></p>
 
-          <h6 class='list_title'>Date:</h6><span><%= moment(activities[i].date).format("Do MMM YYYY");%></span>
+          <h6>Date:</h6><span><%= moment(activities[i].date).format("Do MMM YYYY");%></span>
           <p><%= activities[i].number_of_bookings.length%> bookings</p>
-          <% if (user) { %>
+          <% if (user && user.local.role === 'Customer') { %>
               <% if (user.local.activities.indexOf(activities[i]) === -1) { %>
                 <button class="button tiny success book-button" data-activity="<%= activities[i].id %>">Book</button>
               <% } else { %>

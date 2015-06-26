@@ -1,0 +1,61 @@
+<!-- views/signup.ejs -->
+<!doctype html>
+<html>
+    <head>
+        <title>BabyPass</title>
+        <% include ./partials/header %>
+    </head>
+    
+    <body>
+        <header>
+          <% include ./partials/navigation %>
+        </header>
+    
+        <div class="row">
+            <div class="small-3 columns"><p></p></div>
+            <div class="small-6 columns">                   
+                <br>
+                <form action="/activities" method="post">
+                  <fieldset>
+                    <legend><h2>
+                    <i class="fi-foot"></i>  Add a new activity</h2></legend>
+
+                    <label>Title</label>
+                    <input type="text" class="form-control" name="title" placeholder="Enter title...">
+                    
+
+                    <label>Address</label>
+                    <input type="text" class="form-control" name="address" placeholder="Enter address...">
+
+                    <label>Image</label>
+                    <input type="text" class="form-control" name="image" placeholder="Enter a url...">
+
+                    <label>Description</label>
+                    <input type="text" class="form-control" name="description" placeholder="Enter a description...">
+                        
+                    <label>Date</label>
+                    <input type="date" class="form-control" name="date" placeholder="Enter a date...">
+
+                    <label>Time</label>
+                    <input type="time" class="form-control" name="time" placeholder="Enter a time...">
+
+                    <label>Capacity</label>
+                    <input type="text" class="form-control" name="description" placeholder="Enter a description...">
+
+                    <label>Age from</label>
+                    <input type="text" class="form-control" name="age_from" placeholder="Enter starting age...">
+
+                    <label>Age to</label>
+                    <input type="text" class="form-control" name="age_to" placeholder="Enter age...">
+    
+                    <button type="submit" class="btn btn-warning btn-lg">Create</button>
+
+                  </fieldset>
+                </form>
+
+            <div class="small-3 columns"><p></p></div>
+        </div>
+
+    <% include ./partials/footer %>
+    </body>
+</html>

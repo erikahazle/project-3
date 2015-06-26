@@ -16,7 +16,7 @@
         <section class="top-bar-section">
             <ul class="right">
               <% if (user) { %>
-                <li><a href="/profile/<%= user.local.role.toLowerCase() %>" class="secondary button">
+                <li><a href="/profile/<%= user.local.role %>" class="secondary button">
                 Hello <%= user.local.name %></a></li>
                 <li><a href="/logout" class="sucess button">Logout</a></li>
               <% } else { %>
@@ -25,5 +25,7 @@
               <% } %>
             </ul>
         </section>
+
     </nav>
 </div>
+

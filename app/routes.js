@@ -41,18 +41,24 @@ module.exports = function(app, passport, db, moment) {
     });
 
     app.post('/signup/customer', passport.authenticate('local-signup', {
-        successRedirect : '/profile',
+        successRedirect : '/profile/customer',
         failureRedirect : '/signup/customer',
         failureFlash : true
     }));
 
+    app.post('/signup/vendor', passport.authenticate('local-signup', {
+        successRedirect : '/profile/vendor',
+        failureRedirect : '/signup/vendor',
+        failureFlash : true
+    }));
+
     app.get('/profile/:role', isLoggedIn, function(req, res) {
-        if (req.user.local.role === 'Customer') {
+        if (req.params.role === 'customer') {
             res.render('profile.ejs', {user : req.user});
-        } else if (req.user.local.role === 'Vendor') {
+        } else if (req.params.role === 'vendor') {
             res.render('vendor_profile.ejs', {user : req.user});
         } else {
-            res.send('Page no found');
+            res.send('Page not found');
         }
     });
 
@@ -72,6 +78,22 @@ module.exports = function(app, passport, db, moment) {
            res.send(activities);
         })
     });
+
+    app.get('/activities/new', function(req, res){
+        res.render('activity_new.ejs');
+    });
+
+    app.post('/activities', isLoggedIn, function(req, res) {
+        var newActivity = req.body;
+        db.Activity.create(newActivity, function(err, activity) {
+            db.User.findById(req.user._id, function(err, user) {
+                user.local.activities.push(activity);
+                user.save();
+                res.redirect('/profile/vendor');
+            })
+            
+        })
+    })
 
     app.get("/imagelist", function (req, res) {
         db.Activity.find({}, function(err, activities){
@@ -116,87 +138,14 @@ module.exports = function(app, passport, db, moment) {
 
     // end of CLIENT ACTIVITY ROUTES =======
 
-    // =====================================
-    // VENDOR ACTIVITY ROUTES ==============
-    // =====================================
-
-    // app.get("/vendor_activity", isLoggedIn, function (req, res){
-    //     // console.log(req.user);
-    //     db.Activity.find({}, function(err, activities) {
-    //        res.render('vendor_activity.ejs', { activities: activities, user: req.user });
-    //     })
-    // });
-
-    // end of VENDOR ACTIVITY ROUTES =======
 
 
-    app.get('/login', function(req, res) {
-        res.render('login.ejs', { message: req.flash('loginMessage') }); 
-    });
-
-    app.post('/login', passport.authenticate('local-login', {
-        successRedirect : '/profile',
-        failureRedirect : '/login',
-        failureFlash : true
-    }));
-
-    app.get('/signup/:role', function(req, res) {
-        if (req.params.role === 'customer') {
-            res.render('customer_signup.ejs', { message: req.flash('signupMessage') });
-        } else if (req.params.role === 'vendor') {
-            res.render('vendor_signup.ejs', { message: req.flash('signupMessage') });
-        } else {
-            res.send('Page no found');
-        }
-    });
-
-// Customer Profile Views
-    app.post('/signup/customer', passport.authenticate('local-signup', {
-        successRedirect : '/profile',
-        failureRedirect : '/signup/customer',
-        failureFlash : true
-    }));
-
-    app.get('/profile', isLoggedIn, function(req, res) {
-        res.render('profile.ejs', {
-            user : req.user
-        });
-    });
-
-// Vendor Profile Views - Made by Nick, designed to mess up Erika's passport routes ;-)
-    app.post('/signup/vendor', passport.authenticate('local-signup', {
-        successRedirect : '/vendor_profile',
-        failureRedirect : '/signup/vendor_signup',
-        failureFlash : true
-    }));
-
-    app.get('/vendor_profile', isLoggedIn, function(req, res) {
-        res.render('vendor_profile.ejs', {
-            user : req.user
-        });
-    });
-
-
-
-    // =====================================
-    // FACEBOOK ROUTES =====================
-    // =====================================
-    // app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
-
-    // app.get('/auth/facebook/callback',
-    //     passport.authenticate('facebook', {
-    //         successRedirect : '/profile',
-    //         failureRedirect : '/'
-    //     }));
 
     app.get('/logout', function(req, res) {
         req.logout();
         res.redirect('/');
     });
 
-
-
-    // **** our routes
  
 
 };
