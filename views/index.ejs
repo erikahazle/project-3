@@ -8,34 +8,40 @@
   <body id="homepage-body">
     <header>
       <% include ./partials/navigation_session %>
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     </header>
   
 
   <!-- Top image is in this section -->
       <div class="hero-image">
-        <div class="row">
-          <div class="large-12 columns intro-text">
-            <p>Kid Pass... a description and button on this section.
-            This image also needs to be aligned vertically and probably less depressing.... however it's good enough for now.</p> 
-          </div>
-        </div>
+        <div class="headline">
+          <div class="row">
+            <div class="large-6 columns">
+            <div id="headline-font">Unlimited classes. Unlimited fun!</div>
+                <p class="lead">BabyPass allows will allow parents to sample a wider array of classes, without having to commit, for flat rate each month.</p>
+                <p class="lead">Checkout all the great things we have.</p>
+                <p class="lead">
+            <a class="btn-dl rnd" href="#">Sign Up</a>
+            <a class="btn-dl rnd" href="#">View Activities</a>
+          </p>
       </div>
+      </div>
+
+      <div class="large-6 columns">
+        <div class="device right"></div>
+      </div>
+    </div>
+  </div>
+<!-- End Headline -->
 
 <!-- Map content is in this section -->
-  <div class="row">
-      <div class="small-1 columns"></div>
-      <div class="small-10 columns">
-        <div id="map-canvas"></div>
-      </div>
-      <div class="small-1 columns"></div>
-  </div>
 
-
-    <ul id="imgset" class="activity-feed-wrapper"></ul>
-    <!-- following line to ensure partial row of amages dont overlap footer -->
-    <div class="row"></div>
-
-
+<div class="row">
+  <div class="small-0 large-0 columns">...</div>
+  <div class="small-10 large-10 columns"><div id="map-canvas"></div></div>
+  <div class="small-2 large-2 columns">...</div>
+</div>
+  
     <% include ./partials/footer %>
   </body>
 </html>
