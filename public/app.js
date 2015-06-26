@@ -100,12 +100,10 @@ $(document).ready(function() {
   
   if ($('.image-wrapper-index').length > 0) {
     $.get('/imagelist', function(response) {
-        $.each(response, function(index, activity) {
-          // --
-           // $('.activity-feed-wrapper').append('<a href="' + activity._id + '"><li><div class="activity-info">' + activity.title + '</div><a href="/' + activity._id + '"><img class="activity_img" src="images/' + activity.image + '"></a></li></a>');
-           $('.activity-feed-wrapper').append('<a href="http://localhost:3000/activitylist"><li><div class="activity-info">' + activity.title + '</div><a href="/http://localhost:3000/activitylist"><img class="activity_img" src="images/' + activity.image + '"></a></li></a>');
-           // --
-        })
+      var activities = response;
+      for (i=0; i<15; i++) {
+        $('.activity-feed-wrapper').append('<a href="http://localhost:3000/activitylist"><li><div class="activity-info">' + activities[i].title + '</div><a href="/http://localhost:3000/activitylist"><img class="activity_img" src="images/' + activities[i].image + '"></a></li></a>');
+      }
     })
   }
 
