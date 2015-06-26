@@ -9,6 +9,7 @@ var ActivitySchema = mongoose.Schema({
   image: String,
   description: String,
   date: Date,
+  time: String,
   capacity: Number,
   age_from: Number,
   age_to: Number,
@@ -24,13 +25,6 @@ var userSchema = mongoose.Schema({
         role: String,
         activities: [ ActivitySchema ]
     }
-    // facebook         : {
-    //     id: String,
-    //     token: String,
-    //     email: String,
-    //     name: String,
-    //     activities: [ ActivitySchema ]
-    // }
 });
 
 userSchema.methods.generateHash = function(password) {
