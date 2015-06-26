@@ -9,6 +9,7 @@ var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
+var moment = require('moment');
 
 app.use(express.static(__dirname + '/public'));
 
@@ -28,7 +29,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-require('./app/routes.js')(app, passport);
+require('./app/routes.js')(app, passport, session, moment);
 
 app.listen(port, function() {
   console.log('The magic happens on port ' + port);

@@ -47,7 +47,7 @@ var activity3 = {
 var activity4 = {
     title: "Mudlarks Children's Gallery",
     address: "Museum in Docklands, No. 1 Warehouse, West India Quay, Hertsmere Road, London, E14 4AL",
-    image: "activity4.jpeg",
+    image: "activity4.jpg",
     description: "Great modern museum visually telling the history of London and Docklands with a special 'Mudlarks' gallery for children. Under fives can explore the soft play area with its DLR train and giant props, while older children can get to grips with hands-on interactives that bring the history of London’s Docks to life. There are also an exciting programme of activities for chidren under five and their carers. The Gallery is suitable for all under 12's. Nappy changing facilities, a cafe and restaurant (both with high chairs). Close to child friendly pubs, restaurants and Canary Wharf shopping.",
     capacity: 10,
     age_from: 1,
@@ -70,7 +70,7 @@ var activity5 = {
   var activity88 = {
     title: "Christchurch Toy Library",
     address: "The Parish Room, Christchurch, Manchester Road, Isle of Dogs, Isle of dogs , London, E14 9BN",
-    image: "activity8.jpg",
+    image: "activity2.jpg",
     description: "This play session is for carers and 0 - 2 1/2 year olds. You can then borrow the toys for a 3 week period. There are toys, crafts (eg playdough) and books, with songtime at the end. In good weather the group has use of the next-door, large, vicarage lawn. Pushchairs are left in the church entrance hall downstairs.",
     capacity: 10,
     age_from: 0,
@@ -81,7 +81,7 @@ var activity5 = {
   var activity89 = {
     title: "Christchurch Toy Library",
     address: "The Parish Room, Christchurch, Manchester Road, Isle of Dogs, Isle of dogs , London, E14 9BN",
-    image: "activity8.jpg",
+    image: "activity2.jpg",
     description: "This play session is for carers and 0 - 2 1/2 year olds. You can then borrow the toys for a 3 week period. There are toys, crafts (eg playdough) and books, with songtime at the end. In good weather the group has use of the next-door, large, vicarage lawn. Pushchairs are left in the church entrance hall downstairs.",
     capacity: 10,
     age_from: 0,
@@ -92,7 +92,7 @@ var activity5 = {
     var activity90 = {
     title: "Christchurch Toy Library",
     address: "The Parish Room, Christchurch, Manchester Road, Isle of Dogs, Isle of dogs , London, E14 9BN",
-    image: "activity8.jpg",
+    image: "activity2.jpg",
     description: "This play session is for carers and 0 - 2 1/2 year olds. You can then borrow the toys for a 3 week period. There are toys, crafts (eg playdough) and books, with songtime at the end. In good weather the group has use of the next-door, large, vicarage lawn. Pushchairs are left in the church entrance hall downstairs.",
     capacity: 10,
     age_from: 0,
@@ -103,7 +103,7 @@ var activity5 = {
 var activity17 = {
     title: "V&A Museum of Childhood Sensory Pod",
     address: "Cambridge Heath Rd, London, E2 9PA",
-    image: "activity17.jpg",
+    image: "activity3.jpg",
     description: "Amid the plethora of playthings and child-related artefacts, the Sensory Pod is a cosy corner of impressions and illuminations. With an assortment of water- and bubble-filled columns and mirrors creating a dazzling mini maze, your baby will be surrounded by a kaleidoscope of colour and movement. Little ones can either sit or stand right up close to get touchy-feely and explore surfaces.",
     capacity: 10,
     age_from: 0,
@@ -115,7 +115,7 @@ var activity17 = {
 var activity18 = {
     title: "National Army Museum Kids' Zone",
     address: "Royal Hospital Rd, London, SW3 4HT ",
-    image: "activity18.jpg",
+    image: "activity5.jpeg",
     description: "There are plenty of interactive activities on hand in this snug section designed for babies and toddlers. With everything scaled down to small proportions, tots can pull themselves up to standing position – eliciting shrieks of joy from babies and parents alike.",
     capacity: 10,
     age_from: 2,
@@ -127,7 +127,7 @@ var activity18 = {
 var activity22 = {
     title: "V&A Museum of Childhood Sensory Pod",
     address: "Cambridge Heath Rd, London, E2 9PA",
-    image: "activity17.jpg",
+    image: "activity3.jpg",
     description: "Amid the plethora of playthings and child-related artefacts, the Sensory Pod is a cosy corner of impressions and illuminations. With an assortment of water- and bubble-filled columns and mirrors creating a dazzling mini maze, your baby will be surrounded by a kaleidoscope of colour and movement. Little ones can either sit or stand right up close to get touchy-feely and explore surfaces.",
     capacity: 10,
     age_from: 0,
@@ -139,7 +139,7 @@ var activity22 = {
 var activity23 = {
     title: "National Army Museum Kids' Zone",
     address: "Royal Hospital Rd, London, SW3 4HT ",
-    image: "activity18.jpg",
+    image: "activity5.jpeg",
     description: "There are plenty of interactive activities on hand in this snug section designed for babies and toddlers. With everything scaled down to small proportions, tots can pull themselves up to standing position – eliciting shrieks of joy from babies and parents alike.",
     capacity: 10,
     age_from: 2,
@@ -150,7 +150,7 @@ var activity23 = {
 var activity19 = {
     title: "The Bee's Knees Indoor Children's Garden",
     address: "166 Lavender Hill, Battersea, London, SW11 5TN",
-    image: "activity19.jpg",
+    image: "activity19.jpeg",
     description: "A gentle world of softly undulating ‘hills’, this chill-out zone conjures up a rural idyll fashioned after Teletubbies. There’s ample space for babies to practise crawling and climbing through explorative play amid the warm colours and scatter cushions.",
     capacity: 10,
     age_from: 2,
@@ -174,7 +174,7 @@ var activity20 = {
 var activity21 = {
     title: "Busy Rascals",
     address: "Queensbury Pub, 110 Walm Lane, Willesden Green NW2 4RS",
-    image: "activity21.jpg",
+    image: "activity8.jpeg",
     description: "Busy Rascals provide a baby and child friendly environment where parents in NW2, NW10 and in local areas can meet, socialise and participate in various activities with their little ones. Busy Rascals host parent and baby/toddler/pre-schooler mornings Monday to Friday and one Saturday per month between 9.30am-11.30am",
     capacity: 10,
     age_from: 0,
@@ -290,7 +290,7 @@ var activity13 = {
 var activity14 = {
     title: "Discover Children's Story Centre",
     address: "383 - 387 High Street, Stratford, London, E15 4QZ",
-    image: "activity14.jpg",
+    image: "activity14.jpeg",
     description: "Discover Children's Story Centre in Stratford, East London, is a place where children aged 0-11 and their families can enjoy playing, learning and making up stories together. Let your imagination soar on our indoor Story Trail exploring a secret cave or climbing a magic tower. Have an adventure in our Story Garden - sail away on a pirate ship, slide down a monster's tongue or play with giant musical instruments. Our Story Studio hosts interactive family exhibitions by famous picture book illustrators. We also have a full programme of storytelling, crafts and workshops and visits by your favourite picture book authors and illustrators.",
     capacity: 10,
     age_from: 2,
@@ -301,7 +301,7 @@ var activity14 = {
 var activity15 = {
     title: "Deen City Farm",
     address: "39 Windsor Avenue, Merton Abbey, London, SW19 2RR",
-    image: "activity15.jpg",
+    image: "activity6.jpeg",
     description: "Set on part of the National Trust's Morden Hall Park Estate, Deen City Farm provides south Wimbledon with a healthy dose of the countryside. Meet the farmyard residents (including Milo and Kimby the alpacas), buy grass nuts to feed the animals or squeal over the newly born ducklings, chicks and lambs. With funding cuts looming, the farm is determined to stay open and is continuing to offer its Growing Garden community project and free bicycle surgeries. For kids, there is also a youngfarmers club and 'Own A Pony Days' for a taste of life on the farm.",
     capacity: 50,
     age_from: 2,
@@ -312,7 +312,7 @@ var activity15 = {
   var activity114 = {
     title: "Discover Children's Story Centre",
     address: "383 - 387 High Street, Stratford, London, E15 4QZ",
-    image: "activity14.jpg",
+    image: "activity14.jpeg",
     description: "Discover Children's Story Centre in Stratford, East London, is a place where children aged 0-11 and their families can enjoy playing, learning and making up stories together. Let your imagination soar on our indoor Story Trail exploring a secret cave or climbing a magic tower. Have an adventure in our Story Garden - sail away on a pirate ship, slide down a monster's tongue or play with giant musical instruments. Our Story Studio hosts interactive family exhibitions by famous picture book illustrators. We also have a full programme of storytelling, crafts and workshops and visits by your favourite picture book authors and illustrators.",
     capacity: 10,
     age_from: 2,
@@ -323,7 +323,7 @@ var activity15 = {
 var activity115 = {
     title: "Deen City Farm",
     address: "39 Windsor Avenue, Merton Abbey, London, SW19 2RR",
-    image: "activity15.jpg",
+    image: "activity6.jpeg",
     description: "Set on part of the National Trust's Morden Hall Park Estate, Deen City Farm provides south Wimbledon with a healthy dose of the countryside. Meet the farmyard residents (including Milo and Kimby the alpacas), buy grass nuts to feed the animals or squeal over the newly born ducklings, chicks and lambs. With funding cuts looming, the farm is determined to stay open and is continuing to offer its Growing Garden community project and free bicycle surgeries. For kids, there is also a youngfarmers club and 'Own A Pony Days' for a taste of life on the farm.",
     capacity: 50,
     age_from: 2,
