@@ -4,6 +4,16 @@
   -webkit-font-smoothing: antialiased;
 }
 
+#activitypage-body {
+/*  background-color: #61ace0;
+  -webkit-font-smoothing: antialiased;*/
+}
+
+.smaller-text {
+  font-size: 14px;
+  font-weight: 400;
+}
+
 #map-canvas {
   height: 500px;
   width: 950px;
@@ -85,6 +95,7 @@
 .activity_img {
   width: 16.66%;
   height: 10pc;
+
 }
 
 .activity-feed-wrapper {
