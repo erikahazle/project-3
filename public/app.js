@@ -98,7 +98,7 @@ $(document).ready(function() {
     deleteActivity(activityDeleteButton, activity_id);
   });
   
-  if ($('#imgset').length > 0) {
+  if ($('.image-wrapper-index').length > 0) {
     $.get('/imagelist', function(response) {
         $.each(response, function(index, activity) {
           // --
