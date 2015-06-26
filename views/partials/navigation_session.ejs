@@ -15,12 +15,10 @@
         </ul>
         <section class="top-bar-section">
             <ul class="right">
-<<<<<<< HEAD
+
               <li><a href="/activitylist"><strong>ACTIVITIES</strong></a></li>
-=======
->>>>>>> 47a64ae9a99fa2a385cc68a67af2ddbc53ee64aa
               <% if (user) { %>
-                <li><a href="/profile/<%= user.local.role %>" class="secondary button">
+                <li><a href="/profile/<%= user.local.role.toLowerCase() %>" class="secondary button">
                 Hello <%= user.local.name %></a></li>
                 <li><a href="/logout" class="sucess button">Logout</a></li>
               <% } else { %>
