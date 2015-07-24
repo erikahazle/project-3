@@ -14,7 +14,7 @@ module.exports = function(app, passport, db, moment) {
         } else if (req.params.role === 'vendor') {
             res.render('vendor_login.ejs', { message: req.flash('loginMessage') }); 
         } else {
-            res.send('Page no found');
+            res.send('Page no found :(');
         }
     });
 
