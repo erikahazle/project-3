@@ -102,7 +102,7 @@ $(document).ready(function() {
     $.get('/imagelist', function(response) {
       var activities = response;
       for (i=0; i<15; i++) {
-        $('.activity-feed-wrapper').append('<a href="http://localhost:3000/activitylist"><li><div class="activity-info">' + activities[i].title + '</div><a href="/http://localhost:3000/activitylist"><img class="activity_img" src="images/' + activities[i].image + '"></a></li></a>');
+        $('.activity-feed-wrapper').append('<a href="http://babypass.herokuapp.com/activitylist"><li><div class="activity-info">' + activities[i].title + '</div><a href="/http://localhost:3000/activitylist"><img class="activity_img" src="images/' + activities[i].image + '"></a></li></a>');
       }
     })
   }
