@@ -5,7 +5,7 @@ module.exports = function(app, passport, db, moment) {
     var db = require('./models/user');
 
     app.get('/', function(req, res) {
-        res.render('index.ejs', {user: req.user});
+        res.render('index.ejs');
     });
 
     app.get('/login/:role', function(req, res) {
