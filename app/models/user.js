@@ -1,8 +1,6 @@
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
 
-// mongoose.connect("mongodb://localhost/babypassdb");
-
 var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost/babypassdb';
 
 mongoose.connect(mongoUri, function (err, res) {
