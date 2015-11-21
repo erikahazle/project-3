@@ -7,7 +7,6 @@
                 <a href="/">BABY<strong>PASS</strong></a>
             </h1>
           </li>
-          
           <li class="toggle-topbar menu-icon">
               <a href="#"><span>Menu</span></a>
           </li>
@@ -17,14 +16,8 @@
             <ul class="right">
 
               <li><a href="/activitylist"><strong>ACTIVITIES</strong></a></li>
-              <% if (user) { %>
-                <li><a href="/profile/<%= user.local.role.toLowerCase() %>" class="secondary button">
-                Hello <%= user.local.name %></a></li>
-                <li><a href="/logout" class="sucess button">Logout</a></li>
-              <% } else { %>
                 <li><a href="/signup/customer">SIGNUP</a></li>
                 <li><a href="/login/customer" class="info button small">LOGIN</a></li>
-              <% } %>
             </ul>
         </section>
 
