@@ -1,0 +1,44 @@
+<!-- views/login.ejs -->
+<!doctype html>
+<html>
+    <head>
+        <title>Node Authentication</title>
+        <% include ./partials/header %>
+    </head>
+    <body>
+        <header>
+          <% include ./partials/navigation %>
+        </header>
+        <!-- show any messages that come back with authentication -->
+        <% if (message.length > 0) { %>
+            <div class="alert alert-danger"><%= message %></div>
+        <% } %>
+
+        <div class="row">
+            <div class="small-3 columns"><p></p></div>
+            <div class="small-6 columns">                   
+                <br>
+                <form action="/login/vendor" method="post">
+                  <fieldset>
+                    <legend><h2>
+                    <i class="fi-foot"></i> Vendor Login</h2></legend>
+
+                    <label>Email</label>
+                    <input type="text" class="form-control" name="email" placeholder="Enter email...">
+                    
+                    <label>Password</label>
+                    <input type="password" class="form-control" name="password" placeholder="Enter email...">
+
+                    <button type="submit" class="btn btn-warning btn-lg">Login</button>
+                  </fieldset>
+                </form>
+                    <br>
+                    <h6>Need an account? <a href="/signup">Signup</a></h6>
+                    <h6>Or go <a href="/">home</a>.</h6>
+            </div>
+            <div class="small-3 columns"><p></p></div>
+        </div>
+        <br>
+        <% include ./partials/footer %>
+    </body>
+</html>
